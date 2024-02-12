@@ -1,0 +1,23 @@
+// itemSubmodules.js
+module.exports = {
+  BaseTypeModule: require("./subModules/BaseTypeModule"),
+  BeastModule: require("./subModules/BeastModule"),
+  DeliriumOrbsModule: require("./subModules/DeliriumOrbsModule"),
+  DivinationCardModule: require("./subModules/DivinationCardModule"),
+  EssenceModule: require("./subModules/EssenceModule"),
+  FossilModule: require("./subModules/FossilModule"),
+  HelmetEnchantModule: require("./subModules/HelmetEnchantModule"),
+  IncubatorModule: require("./subModules/IncubatorModule"),
+  MapModule: require("./subModules/MapModule"),
+  OilModule: require("./subModules/OilModule"),
+  ResonatorModule: require("./subModules/ResonatorModule"),
+  ScarabModule: require("./subModules/ScarabModule"),
+  SkillGemModule: require("./subModules/SkillGemModule"),
+  UniqueAccessoryModule: require("./subModules/UniqueAccessoryModule"),
+  UniqueArmourModule: require("./subModules/UniqueArmourModule"),
+  UniqueFlaskModule: require("./subModules/UniqueFlaskModule"),
+  UniqueJewelModule: require("./subModules/UniqueJewelModule"),
+  UniqueMapModule: require("./subModules/UniqueMapModule"),
+  UniqueWeaponModule: require("./subModules/UniqueWeaponModule"),
+  VialsModule: require("./subModules/VialsModule"),
+};

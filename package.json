@@ -1,0 +1,25 @@
+{
+  "name": "poe-economy-manager",
+  "version": "0.0.1",
+  "description": "poe ninja economy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayberkgezer/poe-economy-manager.git"
+  },
+  "keywords": [
+    "poe"
+  ],
+  "author": "Ayberk Gezer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ayberkgezer/poe-economy-manager/issues"
+  },
+  "homepage": "https://github.com/ayberkgezer/poe-economy-manager#readme",
+  "dependencies": {
+    "axios": "^1.6.7"
+  }
+}
