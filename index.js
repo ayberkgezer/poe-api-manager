@@ -1,3 +1,3 @@
-const NinjaAPI = require("./src/NinjaAPI");
+const NinjaAPI = require("./lib/NinjaAPI");
 
 module.exports = NinjaAPI;

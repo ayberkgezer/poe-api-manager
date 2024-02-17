@@ -1,9 +1,9 @@
 # poe-economy-manager
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-![Version](https://img.shields.io/github/package-json/v/ayberkgezer/poe-economy-manager)
-![GitHub top language](https://img.shields.io/github/languages/top/ayberkgezer/poe-economy-manager?logo=javascript)
-[![ISSUES](https://img.shields.io/github/issues/ayberkgezer/poe-economy-manager)](https://github.com/ayberkgezer/poe-economy-manager/issues)
+![Version](https://img.shields.io/github/package-json/v/ayberkgezer/poe-api-manager)
+![GitHub top language](https://img.shields.io/github/languages/top/ayberkgezer/poe-api-manager?logo=javascript)
+[![ISSUES](https://img.shields.io/github/issues/ayberkgezer/poe-api-manager)](https://github.com/ayberkgezer/poe-api-manager/issues)
 
 - [Introduction](#introduction)
 - [Overwiev](#overwiev)
@@ -11,7 +11,7 @@
 - [Getting Started](#getting-started)
   - [currencyWiev](#currencywiev)
   - [itemWiev](#itemwiev)
-- [Changelog](https://github.com/ayberkgezer/poe-economy-manager/blob/main/Changelog.md)
+- [Changelog](https://github.com/ayberkgezer/poe-api-manager/blob/main/Changelog.md)
 - [Examples](#examples)
 
 
@@ -30,12 +30,12 @@ There are two types of usage for Poe: [currencywiev](#currencywiev) and [itemwie
 ## Installation
 **Install with npm:**
 ```bash
-$ npm install poe-economy-manager
+$ npm install poe-api-manager
 ```
 
 ## Getting Started
 ```javascript
-const NinjaAPI = require("poe-economy-manager");
+const NinjaAPI = require("poe-api-manager");
 
 const ninjaAPI = new NinjaAPI("League-Name");
 ```
@@ -82,6 +82,13 @@ What we can get here is as follows.
 - Unique Maps
 - Unique Weapons
 - Vials
+- Omens
+- Unique Relics
+- Cluster Jewels
+- Blighted Maps
+- Blight Ravaged Maps
+- Invitations
+- Memories
 
 getData() => function returns data purely.
 ```javascript
@@ -101,7 +108,7 @@ ninjaAPI.itemWiev.baseType.getData(["id", "name", "icon"]).then((data) => {
 
 ## Examples
 ```javascript
-const NinjaAPI = require("poe-economy-manager");
+const NinjaAPI = require("poe-api-manager");
 
 // Create NinjaAPI
 const ninjaAPI = new NinjaAPI("Affliction");
@@ -121,7 +128,7 @@ ninjaAPI.currencyWiev.currency.getData(requestedProperties).then((data) => {
 ```
 
 ```javascript
-const NinjaAPI = require("poe-economy-manager");
+const NinjaAPI = require("poe-api-manager");
 
 // Create NinjaAPI
 const ninjaAPI = new NinjaAPI("Affliction");
