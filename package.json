@@ -1,10 +1,10 @@
 {
   "name": "poe-api-manager",
-  "version": "0.1.0",
-  "description": "API management for Path of Exile",
+  "version": "0.2.2",
+  "description": "API management for poe.ninja and poe.watch",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --require esm --recursive test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -20,8 +20,10 @@
     "path of exile economy",
     "path of exile ninja",
     "api",
-    "poe api",
-    "poe economy api"
+    "poe economy api",
+    "path of exile api",
+    "poe.watch api",
+    "poe.ninja api"
   ],
   "author": "Ayberk Gezer",
   "license": "MIT",
@@ -31,5 +33,11 @@
   "homepage": "https://github.com/ayberkgezer/poe-api-manager#readme",
   "dependencies": {
     "axios": "^1.6.7"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "esm": "^3.2.25",
+    "mocha": "^10.3.0",
+    "sinon": "^17.0.1"
   }
 }

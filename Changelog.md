@@ -1,6 +1,11 @@
 # Changelog
+## 0.2.2
+poe.watch API add
 
-## 0.1.0 17.02.1014
+use getData() function
+
+
+## 0.1.0 
 poe.ninja API new 
 
 - Omens
@@ -11,4 +16,4 @@ poe.ninja API new
 - Invitations
 - Memories
 
-## 0.0.1 Publish 15.02.2024
+## 0.0.1 Publish

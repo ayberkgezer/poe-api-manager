@@ -1,16 +1,21 @@
-# poe-economy-manager
+# poe-api-manager
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 ![Version](https://img.shields.io/github/package-json/v/ayberkgezer/poe-api-manager)
 ![GitHub top language](https://img.shields.io/github/languages/top/ayberkgezer/poe-api-manager?logo=javascript)
 [![ISSUES](https://img.shields.io/github/issues/ayberkgezer/poe-api-manager)](https://github.com/ayberkgezer/poe-api-manager/issues)
+![NPM Downloads](https://img.shields.io/npm/dt/poe-api-manager?logo=npm)
+
 
 - [Introduction](#introduction)
 - [Overwiev](#overwiev)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
-  - [currencyWiev](#currencywiev)
-  - [itemWiev](#itemwiev)
+  - [poe.ninja](#ninjaapi)
+    - [currencyWiev](#currencywiev)
+    - [itemWiev](#itemwiev)
+  - [poe.watch](#watchapi)
+    - [wiev](#wiev)
 - [Changelog](https://github.com/ayberkgezer/poe-api-manager/blob/main/Changelog.md)
 - [Examples](#examples)
 
@@ -19,13 +24,13 @@
 ## Introduction
 The purpose of this library is to make the economic data in the Path of Exile game easily usable.
 
->Important!: For economy, it is taken from the poe.ninja website. (for now)
+>Important!: For economy, it is taken from the poe.ninja and poe.watch
 
-> Note: This product is in no way affiliated with or endorsed by Grinding Gear Games and poe.ninja.
+> Note: This product is in no way affiliated with or endorsed by Grinding Gear Games, poe.ninja and poe.watch.
 
 ## Overwiev
 
-There are two types of usage for Poe: [currencywiev](#currencywiev) and [itemwiev](#itemwiev).
+Permission to access two different services. poe.ninja and poe.watch
 
 ## Installation
 **Install with npm:**
@@ -34,13 +39,15 @@ $ npm install poe-api-manager
 ```
 
 ## Getting Started
+
+### ninjaAPI
 ```javascript
-const NinjaAPI = require("poe-api-manager");
+const { NinjaAPI } = require("poe-api-manager");
 
 const ninjaAPI = new NinjaAPI("League-Name");
 ```
 
-### currencyWiev
+#### currencyWiev
 What we can get here is as follows.
 - Currency
 - Fragment
@@ -60,7 +67,7 @@ ninjaAPI.currencyWiev.currency.getData(["id", "name", "icon"]).then((data) => {
   console.log(data);
 });
 ```
-### itemWiev
+#### itemWiev
 What we can get here is as follows.
 - BaseType
 - Beast
@@ -105,48 +112,102 @@ ninjaAPI.itemWiev.baseType.getData(["id", "name", "icon"]).then((data) => {
   console.log(data);
 });
 ```
+### watchAPI
+```javascript
+const { WatchAPI } = require("poe-api-manager");
+
+const watchAPI = new WatchAPI("League-Name");
+```
+#### wiev
+What we can get here is as follows.
+- Currency
+- Essences
+- Fossil
+- Fragment
+- Gem
+- Invitation
+- Jewel
+- Map
+- Oil
+- Scarab
+- Sextant
+- Accessory
+- Armour
+- Weapon
+- Flask
+- Base
+- Beast
+
+```javascript
+//Example Currency
+watchAPI.wiev.baseType.getData().then((data) => {
+  console.log(data);
+});
+```
+> Enter [poe.watch Document](https://docs.poe.watch/#get-all-armours) to access the values for the filter.
+```javascript
+//Filtered data is returned
+watchAPI.wiev.currency.getData(["id", "name", "icon"]).then((data) => {
+  console.log(data);
+});
+```
 
 ## Examples
 ```javascript
-const NinjaAPI = require("poe-api-manager");
+const { NinjaAPI , WatchAPI } = require("poe-api-manager");
 
 // Create NinjaAPI
 const ninjaAPI = new NinjaAPI("Affliction");
+//Create WatchAPI
+const watchAPI = new WatchAPI("Affliction")
 
 //We entered the filter data
 const requestedProperties = ["id", "name", "icon"];
 
-//filtered BaseType data
+//filtered BaseType data ninjaAPI
 ninjaAPI.itemwiev.baseType.getData(requestedProperties).then((data) => {
   console.log(data);
 });
 
-//filtered Currency data
+//filtered Currency data ninjaAPI
 ninjaAPI.currencyWiev.currency.getData(requestedProperties).then((data) => {
+  console.log(data);
+});
+
+// filtered Scarab data watchAPI
+watchAPI.wiev.scarab.getData(requestedProperties).then((data) => {
   console.log(data);
 });
 ```
 
 ```javascript
-const NinjaAPI = require("poe-api-manager");
+const { NinjaAPI , WatchAPI } = require("poe-api-manager");
 
 // Create NinjaAPI
 const ninjaAPI = new NinjaAPI("Affliction");
+//Create WatchAPI
+const watchAPI = new WatchAPI("Affliction")
 
 const requestedProperties = ["id", "name", "icon"];
 
 //Using await in an async function
 const fetchData = async () => {
   try {
-    //Oil Data
+    //Oil Data poe.ninja
     const oilData = await ninjaAPI.item.oil.getData(requestedProperties);
 
-    console.log("Oil Data:", oilData);
 
-    //Currency Data
+    console.log("poe.ninja Oil Data:", oilData);
+
+    //Currency Data poe.ninja
     const currencyData = await ninjaAPI.currencyWiev.currency.getData(requestedProperties);
 
-    console.log("Currency Data:", currencyData);
+    console.log("poe.ninja Currency Data:", currencyData);
+
+    //Scarab Data poe.watch
+    const scarabData = await watchAPI.wiev.scarab.getData(requestedProperties)
+
+    console.log("poe.watch Scarab Data", scarabData);
   } catch (error) {
     console.error("Error fetching data:", error);
   }
