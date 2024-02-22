@@ -1,5 +1,5 @@
 /node_modules
 /test
 /test/node_modules
-.test.js
+test.js
 .DS_Store

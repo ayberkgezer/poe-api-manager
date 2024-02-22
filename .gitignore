@@ -133,5 +133,5 @@ dist
 .DS_Store
 
 #test
-.test.js
+test.js
 /test
