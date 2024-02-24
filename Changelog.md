@@ -1,4 +1,8 @@
 # Changelog
+## 0.2.6
+JSDocs have been added for easy understanding.
+
+
 ## 0.2.2
 poe.watch API add
 
