@@ -1,7 +1,7 @@
 # poe-api-manager
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-![Version](https://img.shields.io/github/package-json/v/ayberkgezer/poe-api-manager)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/ayberkgezer/poe-api-manager)
 ![GitHub top language](https://img.shields.io/github/languages/top/ayberkgezer/poe-api-manager?logo=javascript)
 [![ISSUES](https://img.shields.io/github/issues/ayberkgezer/poe-api-manager)](https://github.com/ayberkgezer/poe-api-manager/issues)
 ![NPM Downloads](https://img.shields.io/npm/dt/poe-api-manager?logo=npm)
