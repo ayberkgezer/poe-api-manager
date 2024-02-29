@@ -1,6 +1,6 @@
 {
   "name": "poe-api-manager",
-  "version": "0.2.6",
+  "version": "0.2.8",
   "description": "API management for poe.ninja and poe.watch",
   "main": "index.js",
   "scripts": {

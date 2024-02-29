@@ -12,10 +12,10 @@
 - [Installation](#installation)
 - [Getting Started](#getting-started)
   - [poe.ninja](#ninjaapi)
-    - [currencyWiev](#currencywiev)
-    - [itemWiev](#itemwiev)
+    - [currencyView](#currencywiev)
+    - [itemView](#itemwiev)
   - [poe.watch](#watchapi)
-    - [wiev](#wiev)
+    - [view](#view)
 - [Changelog](https://github.com/ayberkgezer/poe-api-manager/blob/main/Changelog.md)
 - [Examples](#examples)
 
@@ -47,7 +47,7 @@ const { NinjaAPI } = require("poe-api-manager");
 const ninjaAPI = new NinjaAPI("League-Name");
 ```
 
-#### currencyWiev
+#### currencyView
 What we can get here is as follows.
 - Currency
 - Fragment
@@ -55,7 +55,7 @@ What we can get here is as follows.
 getData() => function returns data purely.
 ```javascript
 //Example Currency
-ninjaAPI.currencyWiev.currency.getData().then((data) => {
+ninjaAPI.currencyView.currency.getData().then((data) => {
   console.log(data);
 });
 ```
@@ -63,11 +63,11 @@ getdata(requestedProperties) => The function filters the data as desired.
 >Note: Enter [poe.ninja Document](https://github.com/ayberkgezer/poe.ninja-API-Document?tab=readme-ov-file#poeninja-api) to access the values for the filter.
 ```javascript
 //Filtered data is returned
-ninjaAPI.currencyWiev.currency.getData(["id", "name", "icon"]).then((data) => {
+ninjaAPI.currencyView.currency.getData(["id", "name", "icon"]).then((data) => {
   console.log(data);
 });
 ```
-#### itemWiev
+#### itemView
 What we can get here is as follows.
 - BaseType
 - Beast
@@ -100,7 +100,7 @@ What we can get here is as follows.
 getData() => function returns data purely.
 ```javascript
 //Example BaseType
-ninjaAPI.itemWiev.baseType.getData().then((data) => {
+ninjaAPI.itemView.baseType.getData().then((data) => {
   console.log(data);
 });
 ```
@@ -108,7 +108,7 @@ getdata(requestedProperties) => The function filters the data as desired.
 >Note: Enter [poe.ninja Document](https://github.com/ayberkgezer/poe.ninja-API-Document?tab=readme-ov-file#poeninja-api) to access the values for the filter.
 ```javascript
 //Filtered data is returned
-ninjaAPI.itemWiev.baseType.getData(["id", "name", "icon"]).then((data) => {
+ninjaAPI.itemView.baseType.getData(["id", "name", "icon"]).then((data) => {
   console.log(data);
 });
 ```
@@ -118,7 +118,7 @@ const { WatchAPI } = require("poe-api-manager");
 
 const watchAPI = new WatchAPI("League-Name");
 ```
-#### wiev
+#### view
 What we can get here is as follows.
 - Currency
 - Essences
@@ -138,16 +138,29 @@ What we can get here is as follows.
 - Base
 - Beast
 
+getData() => function returns data purely.
 ```javascript
 //Example Currency
-watchAPI.wiev.baseType.getData().then((data) => {
+watchAPI.view.baseType.getData().then((data) => {
   console.log(data);
 });
 ```
 > Enter [poe.watch Document](https://docs.poe.watch/#get-all-armours) to access the values for the filter.
+
+getdata(requestedProperties) => The function filters the data as desired.
 ```javascript
 //Filtered data is returned
-watchAPI.wiev.currency.getData(["id", "name", "icon"]).then((data) => {
+watchAPI.view.currency.getData(["id", "name", "icon"]).then((data) => {
+  console.log(data);
+});
+```
+getCategory("categoryName") => The function quickly filters through specific categories.
+
+> Note: Used in accessory, armour, base, gem and weapon.
+
+```javascript
+//Returns the chest category in Armor.
+watchAPI.view.armour.getCategory("chest").then((data) => {
   console.log(data);
 });
 ```
@@ -165,17 +178,17 @@ const watchAPI = new WatchAPI("Affliction")
 const requestedProperties = ["id", "name", "icon"];
 
 //filtered BaseType data ninjaAPI
-ninjaAPI.itemwiev.baseType.getData(requestedProperties).then((data) => {
+ninjaAPI.itemView.baseType.getData(requestedProperties).then((data) => {
   console.log(data);
 });
 
 //filtered Currency data ninjaAPI
-ninjaAPI.currencyWiev.currency.getData(requestedProperties).then((data) => {
+ninjaAPI.currencyView.currency.getData(requestedProperties).then((data) => {
   console.log(data);
 });
 
 // filtered Scarab data watchAPI
-watchAPI.wiev.scarab.getData(requestedProperties).then((data) => {
+watchAPI.view.scarab.getData(requestedProperties).then((data) => {
   console.log(data);
 });
 ```
@@ -194,18 +207,18 @@ const requestedProperties = ["id", "name", "icon"];
 const fetchData = async () => {
   try {
     //Oil Data poe.ninja
-    const oilData = await ninjaAPI.item.oil.getData(requestedProperties);
+    const oilData = await ninjaAPI.itemView.oil.getData(requestedProperties);
 
 
     console.log("poe.ninja Oil Data:", oilData);
 
     //Currency Data poe.ninja
-    const currencyData = await ninjaAPI.currencyWiev.currency.getData(requestedProperties);
+    const currencyData = await ninjaAPI.currencyView.currency.getData(requestedProperties);
 
     console.log("poe.ninja Currency Data:", currencyData);
 
     //Scarab Data poe.watch
-    const scarabData = await watchAPI.wiev.scarab.getData(requestedProperties)
+    const scarabData = await watchAPI.view.scarab.getData(requestedProperties)
 
     console.log("poe.watch Scarab Data", scarabData);
   } catch (error) {

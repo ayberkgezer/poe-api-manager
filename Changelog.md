@@ -1,23 +1,22 @@
 # Changelog
+## 0.2.8
+- 🚀[Added] poe.watch API with `getCategory()` function.
+- 🛠️ [Fixed] WatchAPI sınıfında yazım hatası
+- 📝 [Update] The documentation has been updated.
 ## 0.2.6
-JSDocs have been added for easy understanding.
-
+- 🎨[Added] JSDocs for easy understanding.
 
 ## 0.2.2
-poe.watch API add
+- 🚀[Added] poe.watch API with `getData()` function.
 
-use getData() function
-
-
-## 0.1.0 
-poe.ninja API new 
-
-- Omens
-- Unique Relics
-- Cluster Jewels
-- Blighted Maps
-- Blight Ravaged Maps
-- Invitations
-- Memories
+## 0.1.0
+- 🚀[Added] poe.ninja API with the following features:
+    - Omens
+    - Unique Relics
+    - Cluster Jewels
+    - Blighted Maps
+    - Blight Ravaged Maps
+    - Invitations
+    - Memories
 
 ## 0.0.1 Publish
