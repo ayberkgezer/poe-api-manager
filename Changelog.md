@@ -1,7 +1,7 @@
 # Changelog
 ## 0.2.8
 - 🚀[Added] poe.watch API with `getCategory()` function.
-- 🛠️ [Fixed] WatchAPI sınıfında yazım hatası
+- 🛠️ [Fixed] Typo in WatchAPI class
 - 📝 [Update] The documentation has been updated.
 ## 0.2.6
 - 🎨[Added] JSDocs for easy understanding.
