@@ -164,6 +164,22 @@ watchAPI.view.armour.getCategory("chest").then((data) => {
   console.log(data);
 });
 ```
+## Utils
+Utils class is a class that contains some auxiliary tools.
+```javascript
+const { Utils } = require("poe-api-manager");
+const utils = new Utils();
+```
+getLeagues() => Returns available league names.
+
+```javascript
+const utils = new Utils();
+
+utils.getLeagues().then((data) => {
+  console.log(data);
+});
+```
+
 
 ## Examples
 ```javascript

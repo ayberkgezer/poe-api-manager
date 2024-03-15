@@ -1,4 +1,9 @@
 # Changelog
+## 1.0.0
+- 🚀[New] utils class
+- 🚀[New] utils `getLeagues`function. Get league name.
+- 📝 [Update] The documentation has been updated.
+
 ## 0.2.8
 - 🚀[Added] poe.watch API with `getCategory()` function.
 - 🛠️ [Fixed] Typo in WatchAPI class
