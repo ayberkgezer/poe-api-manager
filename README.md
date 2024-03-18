@@ -16,6 +16,7 @@
     - [itemView](#itemwiev)
   - [poe.watch](#watchapi)
     - [view](#view)
+  - [utils](#utils)
 - [Changelog](https://github.com/ayberkgezer/poe-api-manager/blob/main/Changelog.md)
 - [Examples](#examples)
 
