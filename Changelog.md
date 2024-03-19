@@ -1,4 +1,9 @@
 # Changelog
+## 1.2.1
+- 🔄 [Update] Development was done with OOP. Classes have been changed.
+  >There was no change in the scripts.
+- 🚀[Added] Added `filterProperties()` to utils class.
+
 ## 1.0.0
 - 🚀[New] utils class
 - 🚀[New] utils `getLeagues`function. Get league name.
