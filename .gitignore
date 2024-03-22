@@ -135,3 +135,6 @@ dist
 #test
 test.js
 /test
+
+/lib/modules/redismanager
+/lib/RedisManager.js

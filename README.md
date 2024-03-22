@@ -16,6 +16,7 @@
     - [itemView](#itemwiev)
   - [poe.watch](#watchapi)
     - [view](#view)
+  - [utils](#utils)
 - [Changelog](https://github.com/ayberkgezer/poe-api-manager/blob/main/Changelog.md)
 - [Examples](#examples)
 
@@ -52,14 +53,14 @@ What we can get here is as follows.
 - Currency
 - Fragment
 
-getData() => function returns data purely.
+- getData() => function returns data purely.
 ```javascript
 //Example Currency
 ninjaAPI.currencyView.currency.getData().then((data) => {
   console.log(data);
 });
 ```
-getdata(requestedProperties) => The function filters the data as desired.
+- getdata(requestedProperties) => The function filters the data as desired.
 >Note: Enter [poe.ninja Document](https://github.com/ayberkgezer/poe.ninja-API-Document?tab=readme-ov-file#poeninja-api) to access the values for the filter.
 ```javascript
 //Filtered data is returned
@@ -97,14 +98,14 @@ What we can get here is as follows.
 - Invitations
 - Memories
 
-getData() => function returns data purely.
+- getData() => function returns data purely.
 ```javascript
 //Example BaseType
 ninjaAPI.itemView.baseType.getData().then((data) => {
   console.log(data);
 });
 ```
-getdata(requestedProperties) => The function filters the data as desired.
+- getdata(requestedProperties) => The function filters the data as desired.
 >Note: Enter [poe.ninja Document](https://github.com/ayberkgezer/poe.ninja-API-Document?tab=readme-ov-file#poeninja-api) to access the values for the filter.
 ```javascript
 //Filtered data is returned
@@ -138,7 +139,7 @@ What we can get here is as follows.
 - Base
 - Beast
 
-getData() => function returns data purely.
+- getData() => function returns data purely.
 ```javascript
 //Example Currency
 watchAPI.view.baseType.getData().then((data) => {
@@ -147,14 +148,14 @@ watchAPI.view.baseType.getData().then((data) => {
 ```
 > Enter [poe.watch Document](https://docs.poe.watch/#get-all-armours) to access the values for the filter.
 
-getdata(requestedProperties) => The function filters the data as desired.
+- getdata(requestedProperties) => The function filters the data as desired.
 ```javascript
 //Filtered data is returned
 watchAPI.view.currency.getData(["id", "name", "icon"]).then((data) => {
   console.log(data);
 });
 ```
-getCategory("categoryName") => The function quickly filters through specific categories.
+- getCategory("categoryName") => The function quickly filters through specific categories.
 
 > Note: Used in accessory, armour, base, gem and weapon.
 
@@ -170,14 +171,19 @@ Utils class is a class that contains some auxiliary tools.
 const { Utils } = require("poe-api-manager");
 const utils = new Utils();
 ```
-getLeagues() => Returns available league names.
+- getLeagues() => Returns available league names.
 
 ```javascript
-const utils = new Utils();
-
 utils.getLeagues().then((data) => {
   console.log(data);
 });
+```
+
+- filterProperties(data, properties) => It is used to filter data.
+
+```javascript
+utils.filterProperties(data, ["currencyTypeName", "chaosEquivalent"])
+  .then((result) => console.log(result));
 ```
 
 
