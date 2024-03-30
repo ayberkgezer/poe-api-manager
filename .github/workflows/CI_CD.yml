@@ -1,0 +1,53 @@
+name: Release
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    npm-publish:
+        runs-on: ubuntu-latest
+        steps:
+            - name: 📚 Checkout repository
+              uses: actions/checkout@v2
+              
+            - run: ls
+
+            - name: Node
+              uses: actions/setup-node@v2
+              with:
+                node-version: '20'
+                registry-url: https://registry.npmjs.org
+
+            - name: 🧪 NPM ci
+              run: npm ci  
+
+            - name: 📦 Publish to NPM
+              run: npm publish
+              env:
+                NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            
+            - name: 🚀 Get version and release name from package.json
+              id: version
+              run: echo "::set-output name=version::$(node -e 'console.log(require("./package.json").version)')"
+                
+            - name: 🚀 Get release name
+              id: release_name
+              run: echo "::set-output name=release_name::$(node -e 'console.log(require("./package.json").name)')"
+
+            - name: 🚀 Generate Version
+              id: create-release
+              uses: actions/create-release@v1
+              env:
+                GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
+              with:
+                tag_name: v${{ steps.version.outputs.version }}
+                release_name: ${{ steps.release_name.outputs.release_name }} v${{ steps.version.outputs.version }}
+                body: "[CHANGELOG](https://github.com/ayberkgezer/poe-api-manager/blob/main/CHANGELOG.md)"
+                draft: false
+                prerelease: false
+

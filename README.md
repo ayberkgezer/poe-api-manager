@@ -8,7 +8,7 @@
 
 
 - [Introduction](#introduction)
-- [Overwiev](#overwiev)
+- [Overview](#overview)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
   - [poe.ninja](#ninjaapi)
@@ -29,7 +29,7 @@ The purpose of this library is to make the economic data in the Path of Exile ga
 
 > Note: This product is in no way affiliated with or endorsed by Grinding Gear Games, poe.ninja and poe.watch.
 
-## Overwiev
+## Overview
 
 Permission to access two different services. poe.ninja and poe.watch
 
@@ -60,7 +60,7 @@ ninjaAPI.currencyView.currency.getData().then((data) => {
   console.log(data);
 });
 ```
-- getdata(requestedProperties) => The function filters the data as desired.
+- getData(requestedProperties) => The function filters the data as desired.
 >Note: Enter [poe.ninja Document](https://github.com/ayberkgezer/poe.ninja-API-Document?tab=readme-ov-file#poeninja-api) to access the values for the filter.
 ```javascript
 //Filtered data is returned
@@ -68,6 +68,13 @@ ninjaAPI.currencyView.currency.getData(["id", "name", "icon"]).then((data) => {
   console.log(data);
 });
 ```
+- getQuickCurrency() => This function returns the chaos value from the currency name. It returns "Divine Orb" chaos as the default value. currencyTypeName default "Divine Orb"
+```javascript
+ninjaAPI.currencyView.currency.getQuickCurrency(currencyTypeName).then((data)=> {
+  console.log(data);
+});
+```
+
 #### itemView
 What we can get here is as follows.
 - BaseType

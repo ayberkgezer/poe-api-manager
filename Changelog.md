@@ -1,4 +1,10 @@
 # Changelog
+## 1.2.2
+- 🛠️ [Fixed] Control mechanisms in API calls have been improved for better error handling.
+- 🔄 [Changed] Updated dependencies to their latest versions for improved security and performance.
+- 🚀 [Added] `getQuickCurrency()` has been added to the Currency class.
+
+
 ## 1.2.1
 - 🔄 [Update] Development was done with OOP. Classes have been changed.
   >There was no change in the scripts.

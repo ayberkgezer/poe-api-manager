@@ -1,6 +1,6 @@
 {
   "name": "poe-api-manager",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "API management for poe.ninja and poe.watch",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,9 @@
     "poe economy api",
     "path of exile api",
     "poe.watch api",
-    "poe.ninja api"
+    "poe.ninja api",
+    "backend",
+    "frontend"
   ],
   "author": "Ayberk Gezer",
   "license": "MIT",
