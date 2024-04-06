@@ -1,4 +1,7 @@
 # Changelog
+## 1.2.3
+- 🚀 [Added] Coffins added to itemview.
+
 ## 1.2.2
 - 🛠️ [Fixed] Control mechanisms in API calls have been improved for better error handling.
 - 🔄 [Changed] Updated dependencies to their latest versions for improved security and performance.
