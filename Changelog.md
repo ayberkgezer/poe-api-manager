@@ -1,4 +1,7 @@
 # Changelog
+## 1.2.4
+- 🚀 [Added] Allflame Embers added to itemview.
+
 ## 1.2.3
 - 🚀 [Added] Coffins added to itemview.
 

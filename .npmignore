@@ -7,3 +7,4 @@ test.js
 /lib/modules/redismanager
 /lib/RedisManager.js
 .vscode
+.github
