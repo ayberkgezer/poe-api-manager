@@ -104,6 +104,7 @@ What we can get here is as follows.
 - Blight Ravaged Maps
 - Invitations
 - Memories
+- Allflame Embers
 
 - getData() => function returns data purely.
 ```javascript
