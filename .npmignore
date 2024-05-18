@@ -8,3 +8,4 @@ test.js
 /lib/RedisManager.js
 .vscode
 .github
+/src

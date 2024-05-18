@@ -1,6 +1,6 @@
 {
   "name": "poe-api-manager",
-  "version": "1.2.12",
+  "version": "1.2.13",
   "description": "poe.ninja and poe.watch API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ayberkgezer/poe-api-manager-ts.git"
+    "url": "https://github.com/ayberkgezer/poe-api-manager.git"
   },
   "keywords": [
     "poe",

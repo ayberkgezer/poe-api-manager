@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.13
+- 🛠️[Fix] Quick Fix.
+
 ## 1.2.12
 - 🚀[New] I decided to develop the main project with Typescript language. From now on, development will only continue from here.
 - 🛠️[Fix] Typescript uses.
