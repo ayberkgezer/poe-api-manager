@@ -1,14 +1,18 @@
 {
   "name": "poe-api-manager",
-  "version": "1.2.4",
-  "description": "API management for poe.ninja and poe.watch",
-  "main": "index.js",
+  "version": "1.2.12",
+  "description": "poe.ninja and poe.watch API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "mocha --require esm --recursive test/**/*.js"
+    "build": "tsc && terser dist/index.js -o dist/index.min.js",
+    "dev": "tsc --watch --project ./tsconfig.json && node --watch ./dist/index.js",
+    "test-1": "ts-node test/test1.ts",
+    "test": "node test/test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ayberkgezer/poe-api-manager.git"
+    "url": "https://github.com/ayberkgezer/poe-api-manager-ts.git"
   },
   "keywords": [
     "poe",
@@ -25,21 +29,21 @@
     "poe.watch api",
     "poe.ninja api",
     "backend",
-    "frontend"
+    "frontend",
+    "typescript"
   ],
-  "author": "Ayberk Gezer",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ayberkgezer/poe-api-manager/issues"
   },
   "homepage": "https://github.com/ayberkgezer/poe-api-manager#readme",
-  "dependencies": {
-    "axios": "^1.6.7"
-  },
+  "author": "Ayberk Gezer",
+  "license": "MIT",
   "devDependencies": {
-    "chai": "^4.3.4",
-    "esm": "^3.2.25",
-    "mocha": "^10.3.0",
-    "sinon": "^17.0.1"
+    "terser": "^5.29.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "axios": "^1.6.8"
   }
 }

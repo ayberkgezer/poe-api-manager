@@ -2,8 +2,8 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/ayberkgezer/poe-api-manager)
-![GitHub top language](https://img.shields.io/github/languages/top/ayberkgezer/poe-api-manager?logo=javascript)
-[![ISSUES](https://img.shields.io/github/issues/ayberkgezer/poe-api-manager)](https://github.com/ayberkgezer/poe-api-manager/issues)
+![GitHub top language](https://img.shields.io/github/languages/top/ayberkgezer/poe-api-manager?logo=typescript)
+[![ISSUES](https://img.shields.io/github/issues/ayberkgezer/poe-api-manager-ts)](https://github.com/ayberkgezer/poe-api-manager/issues)
 ![NPM Downloads](https://img.shields.io/npm/dt/poe-api-manager?logo=npm)
 
 
@@ -12,8 +12,8 @@
 - [Installation](#installation)
 - [Getting Started](#getting-started)
   - [poe.ninja](#ninjaapi)
-    - [currencyView](#currencywiev)
-    - [itemView](#itemwiev)
+    - [currencyView](#currencyview)
+    - [itemView](#itemview)
   - [poe.watch](#watchapi)
     - [view](#view)
   - [utils](#utils)
@@ -23,7 +23,7 @@
 
 
 ## Introduction
-The purpose of this library is to make the economic data in the Path of Exile game easily usable.
+The purpose of this library is to make the economic data in the Path of Exile game easily usable. This library is written in typescript.
 
 >Important!: For economy, it is taken from the poe.ninja and poe.watch
 
@@ -36,7 +36,11 @@ Permission to access two different services. poe.ninja and poe.watch
 ## Installation
 **Install with npm:**
 ```bash
-$ npm install poe-api-manager
+$ npm i poe-api-manager
+```
+**Install with bun:**
+```bash
+$ bun i poe-api-manager
 ```
 
 ## Getting Started
@@ -104,6 +108,7 @@ What we can get here is as follows.
 - Blight Ravaged Maps
 - Invitations
 - Memories
+- Coffins
 - Allflame Embers
 
 - getData() => function returns data purely.

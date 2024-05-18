@@ -1,9 +1,16 @@
 # Changelog
-## 1.2.4
-- 🚀 [Added] Allflame Embers added to itemview.
 
-## 1.2.3
-- 🚀 [Added] Coffins added to itemview.
+## 1.2.12
+- 🚀[New] I decided to develop the main project with Typescript language. From now on, development will only continue from here.
+- 🛠️[Fix] Typescript uses.
+
+## 1.2.9
+- 🚀[Added] Allflame Embers added to itemview.
+
+## 1.2.8
+- 🚀[Added] Coffins added to itemview.
+- 🛠️[Fix] Fix default value for typescript requestedProperties.
+- 🛠️[Fix] Fix bun error.
 
 ## 1.2.2
 - 🛠️ [Fixed] Control mechanisms in API calls have been improved for better error handling.

@@ -1,0 +1,34 @@
+name: Build
+
+on:
+    push:
+      branches:
+        - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📚 Checkout repository
+        uses: actions/checkout@v2
+
+      - name: 🟢 Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: 🍳 Install dependencies
+        run: npm install
+
+      - name: 🧱 Build
+        run: npm run build
+
+      - name: 📚 Control
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "Error: 'dist' folder does not exist!"
+            exit 1 
+          fi
+          
+      - run: echo "Build successful!🎉"
