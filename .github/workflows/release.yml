@@ -55,7 +55,7 @@ jobs:
         with:
           tag_name: v${{ steps.version.outputs.version }}
           release_name: ${{ steps.release_name.outputs.release_name }} v${{ steps.version.outputs.version }}
-          body: "[CHANGELOG](https://github.com/ayberkgezer/poe-api-manager/blob/main/CHANGELOG.md)"
+          body: "[CHANGELOG](https://github.com/ayberkgezer/poe-api-manager/blob/main/Changelog.md)"
           draft: false
           prerelease: false
       - run: mkdir dist
@@ -68,7 +68,7 @@ jobs:
       - run : ls
       
       - name: 🧱 Compress files
-        run: tar -czvf poe-api-manager.tar.gz dist README.md CHANGELOG.md LICENSE package.json
+        run: tar -czvf poe-api-manager.tar.gz dist README.md Changelog.md LICENSE package.json
         
       
       - name: 📦 Sürüm varlıklarını yükle
