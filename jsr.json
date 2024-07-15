@@ -1,5 +1,5 @@
 {
   "name": "@ayberkgezer/poe-api-manager",
   "version": "1.2.14",
-  "exports": "src/index.ts"
+  "exports": "./src/index.ts"
 }
