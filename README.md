@@ -5,6 +5,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/ayberkgezer/poe-api-manager?logo=typescript)
 [![ISSUES](https://img.shields.io/github/issues/ayberkgezer/poe-api-manager-ts)](https://github.com/ayberkgezer/poe-api-manager/issues)
 ![NPM Downloads](https://img.shields.io/npm/dt/poe-api-manager?logo=npm)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/ayberkgezer/poe-api-manager/build.yml)
 
 
 - [Introduction](#introduction)

@@ -150,7 +150,7 @@ export class ItemViewModule {
   public allflameEmber: AllflameEmberModule;
 
   /**
-   * Creates a new instance of ItemWievModule.
+   * Creates a new instance of ItemViewModule.
    * @param league - The Path of Exile league for which the item information is retrieved.
    * @param typeName - The type of item information to retrieve.
    */

@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.14
+- 🚀[New] Publish jsr.
+
 ## 1.2.13
 - 🛠️[Fix] Quick Fix.
 
