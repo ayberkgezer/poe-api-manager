@@ -3,13 +3,14 @@ import filterProperties from "./modules/mainfunctions/propertyFilter";
 
 /**
  * A utility class.
+ * @class
  */
 class Utils {
-  constructor() {}
+  constructor() { }
 
   /**
    * Fetches the list of leagues for the game.
-   * @returns The array of league names.
+   * @returns {string[]} The array of league names.
    * @throws If there's an error fetching the leagues.
    */
   async getLeagues(): Promise<string[]> {
@@ -23,9 +24,9 @@ class Utils {
   /**
    * Filters properties of objects in an array based on the specified properties.
    *
-   * @param data - The array of objects to filter.
-   * @param properties - The array of property names to include in the result.
-   * @returns - An array of objects with only the specified properties.
+   * @param {object[]} data - The array of objects to filter.
+   * @param {string[]} properties - The array of property names to include in the result.
+   * @returns {object[]} - An array of objects with only the specified properties.
    */
   async filterProperties(data: object[], properties: string[]): Promise<object[]> {
     try {

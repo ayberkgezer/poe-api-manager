@@ -15,8 +15,13 @@ abstract class PoeNinja implements IPoeNinja {
      * @param league - The league name.
      * @param typeName
      * @param type - The type.
+     * @implements {IPoeNinja}
      */
-    constructor(protected readonly league: string, protected readonly typeName: string, protected readonly type: string) {
+    constructor(
+        protected readonly league: string,
+        protected readonly typeName: string,
+        protected readonly type: string
+    ) {
     }
     /**
      * Retrieves data from the API based on the specified league, type name, and type.
