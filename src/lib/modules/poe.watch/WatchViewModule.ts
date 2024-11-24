@@ -3,7 +3,7 @@ import { CurrencyModule, AccessoryModule, ArmourModule, BaseModule, BeastModule,
 /**
  * Represents a module for fetching data related to Watchstones and Watchstone Regions.
  */
-export class WatchWievModule {
+export class WatchViewModule {
   /**
    * Module for fetching data related to Currency.
    */
@@ -13,7 +13,7 @@ export class WatchWievModule {
    * Module for fetching data related to Accessories.
    */
   public accessory: AccessoryModule;
-  
+
   /**
    * Module for fetching data related to Armour.
    */
@@ -138,4 +138,4 @@ export class WatchWievModule {
   }
 }
 
-export default WatchWievModule;
+export default WatchViewModule;
