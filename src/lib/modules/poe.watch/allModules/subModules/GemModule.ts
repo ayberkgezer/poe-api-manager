@@ -1,5 +1,5 @@
-import PoeWatch from "../../../AbstractClass/PoeWatch";
-import getCategory from "../func/getCategory";
+import PoeWatch from "../../../../AbstractClass/PoeWatch";
+import getCategory from "../../func/getCategory";
 
 /**
  * Class for retrieving gem data from the POE Watch API.
@@ -26,7 +26,9 @@ class GemModule extends PoeWatch {
     try {
       return await getCategory(this.league, this.type, categoryName);
     } catch (error) {
-      throw new Error(`Error fetching Accessory data: ${(error as Error).message}`);
+      throw new Error(
+        `Error fetching Accessory data: ${(error as Error).message}`,
+      );
     }
   }
 }

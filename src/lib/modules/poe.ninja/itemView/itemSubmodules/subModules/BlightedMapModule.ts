@@ -1,4 +1,4 @@
-import PoeNinja from "../../../../AbstractClass/PoeNinja";
+import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 
 /**
  * Represents a module for handling blighted maps.

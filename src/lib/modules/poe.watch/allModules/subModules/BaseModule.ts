@@ -1,5 +1,5 @@
-import getCategory from "../func/getCategory";
-import PoeWatch from "../../../AbstractClass/PoeWatch";
+import getCategory from "../../func/getCategory";
+import PoeWatch from "../../../../AbstractClass/PoeWatch";
 
 /**
  * Subclass of PoeWatch for accessing base data.
@@ -26,7 +26,9 @@ class BaseModule extends PoeWatch {
     try {
       return await getCategory(this.league, this.type, categoryName);
     } catch (error) {
-      throw new Error(`Error fetching Accessory data: ${(error as Error).message}`);
+      throw new Error(
+        `Error fetching Accessory data: ${(error as Error).message}`,
+      );
     }
   }
 }

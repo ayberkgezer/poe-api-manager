@@ -1,4 +1,4 @@
-import PoeNinja from "../../../../AbstractClass/PoeNinja";
+import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 
 /**
  * Represents an item submodule for retrieving data on Coffin items.

@@ -1,10 +1,9 @@
-import PoeNinja from "../../../../AbstractClass/PoeNinja";
+import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 
 /**
  * Represents a module for handling beasts.
  */
 class BeastModule extends PoeNinja {
-
   /**
    * Creates an instance of BeastModule.
    * @param league - The league name.

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.18
+- 🛠️[Fix] Quick fix poeWatch error.
+- 🛠️[Fix] Quick fix folder structure.
+
 ## 1.2.17
 - 🛠️[Fix] Quick fix github actions.
 
