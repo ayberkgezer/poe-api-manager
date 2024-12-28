@@ -1,4 +1,4 @@
-import PoeWatch from "../../../AbstractClass/PoeWatch";
+import PoeWatch from "../../../../AbstractClass/PoeWatch";
 
 /**
  * Subclass of WatchBaseClass for accessing uniqueMaps data.

@@ -13,7 +13,7 @@ async function fetchData(league: string, type: string): Promise<object[]> {
     const url: string = WatchUrlGenerator(league, type);
     const response = await axios.get(url, {
       headers: {
-        'Accept-Encoding': 'identity',
+        "Accept-Encoding": "identity",
       },
     });
 
@@ -23,7 +23,11 @@ async function fetchData(league: string, type: string): Promise<object[]> {
       throw new Error("Invalid response format from POE Watch API");
     }
   } catch (error) {
-    throw new Error(`Error fetching data from poe.watch: ${(error as Error).message}`);
+    throw new Error(
+      axios.isAxiosError(error) && error.response
+        ? `Error fetching data from poe.watch: ${error.response.data.error}, Code: ${error.response.data.code}`
+        : `Error fetching data from poe.watch: ${error}`
+    );
   }
 }
 

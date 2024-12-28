@@ -1,11 +1,10 @@
-import getCategory from "../func/getCategory";
-import PoeWatch from "../../../AbstractClass/PoeWatch";
+import PoeWatch from "../../../../AbstractClass/PoeWatch";
+import getCategory from "../../func/getCategory";
 
 /**
  * Subclass of PoeWatch for accessing weapon data.
  */
 class WeaponModule extends PoeWatch {
-
   /**
    * Creates a new instance of WeaponModule.
    * @param league - The league from which the data will be fetched.
@@ -27,7 +26,9 @@ class WeaponModule extends PoeWatch {
     try {
       return await getCategory(this.league, this.type, categoryName);
     } catch (error) {
-      throw new Error(`Error fetching Accessory data: ${(error as Error).message}`);
+      throw new Error(
+        `Error fetching Accessory data: ${(error as Error).message}`,
+      );
     }
   }
 }

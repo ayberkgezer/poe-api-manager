@@ -1,6 +1,5 @@
 import getLeagues from "./modules/utils/getLeagues";
-import filterProperties from "./modules/mainfunctions/propertyFilter";
-
+import filterProperties from "./mainfunctions/propertyFilter";
 /**
  * A utility class.
  * @class
@@ -17,7 +16,9 @@ class Utils {
     try {
       return await getLeagues();
     } catch (error) {
-      throw new Error(`Error fetching data Leagues: ${(error as Error).message}`);
+      throw new Error(
+        `Error fetching data Leagues: ${(error as Error).message}`,
+      );
     }
   }
 
@@ -28,11 +29,16 @@ class Utils {
    * @param {string[]} properties - The array of property names to include in the result.
    * @returns {object[]} - An array of objects with only the specified properties.
    */
-  async filterProperties(data: object[], properties: string[]): Promise<object[]> {
+  async filterProperties(
+    data: object[],
+    properties: string[],
+  ): Promise<object[]> {
     try {
       return filterProperties(data, properties);
     } catch (error) {
-      throw new Error(`Error fetching data Leagues: ${(error as Error).message}`);
+      throw new Error(
+        `Error fetching data Leagues: ${(error as Error).message}`,
+      );
     }
   }
 }
