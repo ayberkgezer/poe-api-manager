@@ -9,7 +9,7 @@ class DivsModule extends PoeWatch {
    * @param league - The league from which the data will be fetched.
    */
   constructor(league: string) {
-    const type: string = "div";
+    const type: string = "card";
     super(league, type);
   }
 }

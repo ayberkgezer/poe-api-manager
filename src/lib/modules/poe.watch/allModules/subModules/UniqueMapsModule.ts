@@ -9,7 +9,7 @@ class UniqueMapsModule extends PoeWatch {
    * @param league - The league from which the data will be fetched.
    */
   constructor(league: string) {
-    const type: string = "uniqueMaps";
+    const type: string = "uniqueMap";
     super(league, type);
   }
 }

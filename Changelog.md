@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.19
+- 🚀[Added] poe.watch API with the following features:
+  - Unique Maps
+  - Delirium Orb
+  - Divination Card
+
 ## 1.2.18
 - 🛠️[Fix] Quick fix poeWatch error.
 - 🛠️[Fix] Quick fix folder structure.

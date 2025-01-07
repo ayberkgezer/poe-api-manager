@@ -1,4 +1,26 @@
-import { CurrencyModule, AccessoryModule, ArmourModule, BaseModule, BeastModule, DeliriumOrbModule, DivsModule, EssenceModule, FossilModule, FragmentModule, MapModule, FlaskModule, JewelModule, GemModule, InscribedModule, InvitationModule, OilModule, ScarabModule, SextantModule, UniqueMapsModule, WeaponModule } from "./allModules/Modules";
+import {
+  CurrencyModule,
+  AccessoryModule,
+  ArmourModule,
+  BaseModule,
+  BeastModule,
+  DeliriumOrbModule,
+  DivsModule,
+  EssenceModule,
+  FossilModule,
+  FragmentModule,
+  MapModule,
+  FlaskModule,
+  JewelModule,
+  GemModule,
+  InscribedModule,
+  InvitationModule,
+  OilModule,
+  ScarabModule,
+  SextantModule,
+  UniqueMapsModule,
+  WeaponModule,
+} from "./allModules/Modules";
 
 /**
  * Represents a module for fetching data related to Watchstones and Watchstone Regions.
@@ -32,12 +54,12 @@ export class WatchViewModule {
   /**
    * Module for fetching data related to DeliriumOrb.
    */
-  //public deliriumOrb: DeliriumOrbModule;
+  public deliriumOrb: DeliriumOrbModule;
 
   /**
    * Module for fetching data related to Divs.
    */
-  //public divs: DivsModule;
+  public divs: DivsModule;
 
   /**
    * Module for fetching data related to Essence.
@@ -102,7 +124,7 @@ export class WatchViewModule {
   /**
    * Module for fetching data related to UniqueMaps.
    */
-  //public uniqueMaps: UniqueMapsModule;
+  public uniqueMaps: UniqueMapsModule;
 
   /**
    * Module for fetching data related to Weapon.
@@ -119,8 +141,6 @@ export class WatchViewModule {
     this.armour = new ArmourModule(league);
     this.base = new BaseModule(league);
     this.beast = new BeastModule(league);
-    //this.deliriumOrb = new DeliriumOrbModule(league);
-    //this.divs = new DivsModule(league);
     this.essence = new EssenceModule(league);
     this.fossil = new FossilModule(league);
     this.fragment = new FragmentModule(league);
@@ -128,13 +148,15 @@ export class WatchViewModule {
     this.flask = new FlaskModule(league);
     this.jewel = new JewelModule(league);
     this.gem = new GemModule(league);
-    //this.inscribed = new InscribedModule(league);
     this.invitation = new InvitationModule(league);
     this.oil = new OilModule(league);
     this.scarab = new ScarabModule(league);
     this.sextant = new SextantModule(league);
-    //this.uniqueMaps = new UniqueMapsModule(league);
     this.weapon = new WeaponModule(league);
+    this.uniqueMaps = new UniqueMapsModule(league);
+    this.deliriumOrb = new DeliriumOrbModule(league);
+    this.divs = new DivsModule(league);
+    //this.inscribed = new InscribedModule(league);- not now
   }
 }
 
