@@ -19,7 +19,7 @@ abstract class PoeNinja implements IPoeNinja {
     protected readonly league: string,
     protected readonly typeName: string,
     protected readonly type: string,
-  ) {}
+  ) { }
   /**
    * Retrieves data from the API based on the specified league, type name, and type.
    * @param {string} requestedProperties - Optional array of properties to include in the retrieved data.

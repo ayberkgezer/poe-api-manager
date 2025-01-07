@@ -16,7 +16,7 @@ abstract class PoeWatch implements IPoeWatch {
   constructor(
     protected readonly league: string,
     protected readonly type: string,
-  ) {}
+  ) { }
 
   /**
    * Retrieves data from the PoeWatch API.
