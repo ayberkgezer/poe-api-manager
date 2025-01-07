@@ -152,6 +152,9 @@ What we can get here is as follows.
 - Flask
 - Base
 - Beast
+- Unique Maps
+- Delirium Orb
+- Divination Card
 
 - getData() => function returns data purely.
 ```javascript

@@ -11,10 +11,9 @@ abstract class PoeNinja implements IPoeNinja {
   /**
    * Represents a PoeNinja object.
    * @constructor
-   * @param league - The league name.
-   * @param typeName
-   * @param type - The type.
-   * @implements {IPoeNinja}
+   * @param {string} league - The league name.
+   * @param {string} typeName
+   * @param {string} type - The type.
    */
   constructor(
     protected readonly league: string,
@@ -23,9 +22,9 @@ abstract class PoeNinja implements IPoeNinja {
   ) {}
   /**
    * Retrieves data from the API based on the specified league, type name, and type.
-   * @param requestedProperties - Optional array of properties to include in the retrieved data.
-   * @returns A promise that resolves to an array of objects containing the retrieved data.
-   * @throws If there is an error retrieving the data.
+   * @param {string} requestedProperties - Optional array of properties to include in the retrieved data.
+   * @returns {Promise<object[]>} A promise that resolves to an array of objects containing the retrieved data.
+   * @throws {Error} If there is an error retrieving the data.
    */
   public async getData(requestedProperties?: string[]): Promise<object[]> {
     try {
@@ -42,5 +41,4 @@ abstract class PoeNinja implements IPoeNinja {
     }
   }
 }
-
 export default PoeNinja;
