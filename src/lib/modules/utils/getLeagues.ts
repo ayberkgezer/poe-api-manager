@@ -1,5 +1,5 @@
+import ApiError from "../../errors/ApiError";
 import fetchData from "./fetchData/fetchData";
-import ApiError from "../errors/ApiError";
 
 /**
  * Fetches league names from the provided URL.

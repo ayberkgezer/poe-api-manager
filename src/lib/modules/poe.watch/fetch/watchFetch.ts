@@ -1,6 +1,6 @@
 import axios from "axios";
+import ApiError from "../../../errors/ApiError";
 import WatchUrlGenerator from "../func/WatchUrlGenerator";
-import { ApiError } from "../error/ApiError";
 
 /**
  * Fetches data from the POE Watch API based on the provided query URL.

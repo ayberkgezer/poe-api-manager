@@ -1,4 +1,4 @@
-import { ValidationError } from "poe-api-manager/src/lib/errors";
+import ValidationError from "../errors/ValidationError.js";
 
 /**
  * Filters properties of objects in an array based on the specified properties.
