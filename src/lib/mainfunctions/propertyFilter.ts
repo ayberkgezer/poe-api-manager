@@ -1,3 +1,5 @@
+import { ValidationError } from "poe-api-manager/src/lib/errors";
+
 /**
  * Filters properties of objects in an array based on the specified properties.
  * @param {Record<string, any> []} data The array of objects to filter.
@@ -8,6 +10,18 @@ export default function filterProperties(
   data: Record<string, any>[],
   requestedProperties: string[],
 ): object[] {
+  // Validate input first
+  if (!Array.isArray(data)) {
+    throw new ValidationError("Input data must be an array", 400, {
+      providedType: typeof data,
+    });
+  }
+
+  if (!Array.isArray(requestedProperties)) {
+    throw new ValidationError("requestedProperties must be an array", 400, {
+      providedType: typeof requestedProperties,
+    });
+  }
   const result: object[] = [];
 
   data.forEach((item) => {

@@ -1,6 +1,7 @@
 import IPoeNinja from "../Interfaces/IPoeNinja";
 import getData from "../modules/poe.ninja/func/getData";
-
+import CustomError from "../errors/CustomError";
+import ApiError from "../errors/ApiError";
 /**
  * Abstract class representing a PoeNinja.
  * @abstract
@@ -19,7 +20,7 @@ abstract class PoeNinja implements IPoeNinja {
     protected readonly league: string,
     protected readonly typeName: string,
     protected readonly type: string,
-  ) { }
+  ) {}
   /**
    * Retrieves data from the API based on the specified league, type name, and type.
    * @param {string} requestedProperties - Optional array of properties to include in the retrieved data.
@@ -35,10 +36,17 @@ abstract class PoeNinja implements IPoeNinja {
         requestedProperties,
       );
     } catch (error: any) {
-      throw new Error(
+      // Pass through custom errors
+      if (error instanceof CustomError) {
+        throw error;
+      }
+      throw new ApiError(
         `Error getData ${this.typeName} and ${this.type} data: ${error.message}`,
+        500,
+        { league: this.league, typeName: this.typeName, type: this.type },
       );
     }
   }
 }
+
 export default PoeNinja;

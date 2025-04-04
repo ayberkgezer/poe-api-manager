@@ -1,5 +1,6 @@
 import axios from "axios";
 import WatchUrlGenerator from "../func/WatchUrlGenerator";
+import { ApiError } from "../error/ApiError";
 
 /**
  * Fetches data from the POE Watch API based on the provided query URL.
@@ -20,14 +21,39 @@ async function fetchData(league: string, type: string): Promise<object[]> {
     if (response.data) {
       return response.data;
     } else {
-      throw new Error("Invalid response format from POE Watch API");
+      throw new ApiError("Invalid response format from POE Watch API", 400, {
+        league,
+        type,
+      });
     }
   } catch (error) {
-    throw new Error(
-      axios.isAxiosError(error) && error.response
-        ? `Error fetching data from poe.watch: ${error.response.data.error}, Code: ${error.response.data.code}`
-        : `Error fetching data from poe.watch: ${error}`
-    );
+    // If it's already an ApiError, pass it through
+    if (error instanceof ApiError) {
+      throw error;
+    }
+
+    // Handle axios errors
+    if (axios.isAxiosError(error)) {
+      const statusCode = error.response?.status || 500;
+      const errorDetails = error.response?.data || {};
+
+      throw new ApiError(
+        `Error fetching data from poe.watch: ${errorDetails.error || error.message}`,
+        statusCode,
+        {
+          code: errorDetails.code,
+          league,
+          type,
+          url: error.config?.url,
+        },
+      );
+    }
+
+    // General error case
+    throw new ApiError(`Error fetching data from poe.watch: ${error}`, 500, {
+      league,
+      type,
+    });
   }
 }
 

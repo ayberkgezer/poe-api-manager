@@ -1,6 +1,7 @@
 import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 import getQuickCurrency from "../../../func/getQuickCurrency";
-
+import CustomError from "../../../../../errors/CustomError";
+import ApiError from "../../../../../errors/ApiError";
 /**
  * Represents a module for retrieving currency data from the PoeNinja API.
  */
@@ -35,8 +36,20 @@ class CurrencyModule extends PoeNinja {
         currencyTypeName,
       );
     } catch (error: any) {
-      throw new Error(
+      // Pass through custom errors
+      if (error instanceof CustomError) {
+        throw error;
+      }
+
+      throw new ApiError(
         `Error fetching QuickCurrencyData ${this.type} and Currency Name:${currencyTypeName} data: ${error.message}`,
+        500,
+        {
+          league: this.league,
+          typeName: this.typeName,
+          type: this.type,
+          currencyTypeName,
+        },
       );
     }
   }
