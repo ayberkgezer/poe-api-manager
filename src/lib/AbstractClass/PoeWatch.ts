@@ -1,6 +1,7 @@
 import IPoeWatch from "../Interfaces/IPoeWatch";
 import getData from "../modules/poe.watch/func/getData";
-
+import CustomError from "../errors/CustomError";
+import ApiError from "../errors/ApiError";
 /**
  * Represents an abstract class for interacting with the PoeWatch API.
  * @abstract
@@ -16,7 +17,7 @@ abstract class PoeWatch implements IPoeWatch {
   constructor(
     protected readonly league: string,
     protected readonly type: string,
-  ) { }
+  ) {}
 
   /**
    * Retrieves data from the PoeWatch API.
@@ -28,7 +29,16 @@ abstract class PoeWatch implements IPoeWatch {
     try {
       return getData(this.league, this.type, requestedProperties);
     } catch (error: any) {
-      throw new Error(`Error retrieving ${this.type} data: ${error.message}`);
+      // Pass through custom errors
+      if (error instanceof CustomError) {
+        throw error;
+      }
+
+      throw new ApiError(
+        `Error retrieving ${this.type} data: ${error.message}`,
+        500,
+        { league: this.league, type: this.type },
+      );
     }
   }
 }
