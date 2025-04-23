@@ -3,7 +3,7 @@ import PoeWatch from "../../../../AbstractClass/PoeWatch";
 /**
  * Subclass of PoeWatch for accessing oil data.
  */
-class OilModule extends PoeWatch {
+export class OilModule extends PoeWatch {
   /**
    * Creates a new instance of OilModule.
    * @param league - The league from which the data will be fetched.
@@ -13,5 +13,3 @@ class OilModule extends PoeWatch {
     super(league, type);
   }
 }
-
-export default OilModule;

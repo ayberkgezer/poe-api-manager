@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling incubators.
  */
-class IncubatorModule extends PoeNinja {
+export class IncubatorModule extends PoeNinja {
   /**
    * Creates an instance of IncubatorModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class IncubatorModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default IncubatorModule;

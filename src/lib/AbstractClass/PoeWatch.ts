@@ -1,14 +1,14 @@
 import IPoeWatch from "../Interfaces/IPoeWatch";
-import getData from "../modules/poe.watch/func/getData";
-import CustomError from "../errors/CustomError";
 import ApiError from "../errors/ApiError";
+import CustomError from "../errors/CustomError";
+import getData from "../modules/poe.watch/func/getData";
 /**
  * Represents an abstract class for interacting with the PoeWatch API.
  * @abstract
  * @class
  * @implements {IPoeWatch}
  */
-abstract class PoeWatch implements IPoeWatch {
+export default abstract class PoeWatch implements IPoeWatch {
   /**
    * Creates a new instance of PoeWatch.
    * @param {string} league - The league name to get data from.
@@ -42,4 +42,3 @@ abstract class PoeWatch implements IPoeWatch {
     }
   }
 }
-export default PoeWatch;

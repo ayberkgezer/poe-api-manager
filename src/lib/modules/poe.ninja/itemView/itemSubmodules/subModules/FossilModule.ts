@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling fossils.
  */
-class FossilModule extends PoeNinja {
+export class FossilModule extends PoeNinja {
   /**
    * Creates an instance of FossilModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class FossilModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default FossilModule;

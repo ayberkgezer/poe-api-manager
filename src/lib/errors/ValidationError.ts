@@ -5,7 +5,7 @@ import CustomError from "./CustomError";
  * @class
  * @extends {CustomError}
  */
-class ValidationError extends CustomError {
+export default class ValidationError extends CustomError {
   public details: any;
 
   /**
@@ -19,5 +19,3 @@ class ValidationError extends CustomError {
     this.details = details;
   }
 }
-
-export default ValidationError;

@@ -1,153 +1,152 @@
-import { BaseTypeModule, BeastModule, DeliriumOrbsModule, DivinationCardModule, EssenceModule, FossilModule, HelmetEnchantModule, IncubatorModule, MapModule, OilModule, ResonatorModule, ScarabModule, SkillGemModule, UniqueAccessoryModule, UniqueArmourModule, UniqueFlaskModule, UniqueJewelModule, UniqueMapModule, UniqueWeaponModule, VialsModule, OmenModule, MemoryModule, InvitationModule, UniqueRelicsModule, ClusterJewelModule, BlightedMapModule, BlightRavagedMapModule, CoffinModule, AllflameEmberModule } from './itemSubmodules/itemSubModules';
-
+import * as Modules from "./itemSubmodules/itemSubModules";
 /**
  * Represents a module for viewing item-related information in a specific Path of Exile league.
  */
-export class ItemViewModule {
+export default class ItemViewModule {
   /**
    * Represents a submodule for base type item information.
    */
-  public baseType: BaseTypeModule;
+  public baseType: Modules.BaseTypeModule;
 
   /**
    * Represents a submodule for beast item information.
    */
-  public beast: BeastModule;
+  public beast: Modules.BeastModule;
 
   /**
    * Represents a submodule for delirium orbs item information.
    */
-  public deliriumOrbs: DeliriumOrbsModule;
+  public deliriumOrbs: Modules.DeliriumOrbsModule;
 
   /**
    * Represents a submodule for divination card item information.
    */
-  public divinationCard: DivinationCardModule;
+  public divinationCard: Modules.DivinationCardModule;
 
   /**
    * Represents a submodule for essence item information.
    */
-  public essence: EssenceModule;
+  public essence: Modules.EssenceModule;
 
   /**
    * Represents a submodule for fossil item information.
    */
-  public fossil: FossilModule;
+  public fossil: Modules.FossilModule;
 
   /**
    * Represents a submodule for helmet enchant item information.
    */
-  public helmetEnchant: HelmetEnchantModule;
+  public helmetEnchant: Modules.HelmetEnchantModule;
 
   /**
    * Represents a submodule for incubator item information.
    */
-  public incubator: IncubatorModule;
+  public incubator: Modules.IncubatorModule;
 
   /**
    * Represents a submodule for map item information.
    */
-  public map: MapModule;
+  public map: Modules.MapModule;
 
   /**
    * Represents a submodule for oil item information.
    */
-  public oil: OilModule;
+  public oil: Modules.OilModule;
 
   /**
    * Represents a submodule for resonator item information.
    */
-  public resonator: ResonatorModule;
+  public resonator: Modules.ResonatorModule;
 
   /**
    * Represents a submodule for scarab item information.
    */
-  public scarab: ScarabModule;
+  public scarab: Modules.ScarabModule;
 
   /**
    * Represents a submodule for skill gem item information.
    */
-  public skillGem: SkillGemModule;
+  public skillGem: Modules.SkillGemModule;
 
   /**
    * Represents a submodule for unique accessory item information.
    */
-  public uniqueAccessory: UniqueAccessoryModule;
+  public uniqueAccessory: Modules.UniqueAccessoryModule;
 
   /**
    * Represents a submodule for unique armour item information.
    */
-  public uniqueArmour: UniqueArmourModule;
+  public uniqueArmour: Modules.UniqueArmourModule;
 
   /**
    * Represents a submodule for unique flask item information.
    */
-  public uniqueFlask: UniqueFlaskModule;
+  public uniqueFlask: Modules.UniqueFlaskModule;
 
   /**
    * Represents a submodule for unique jewel item information.
    */
-  public uniqueJewel: UniqueJewelModule;
+  public uniqueJewel: Modules.UniqueJewelModule;
 
   /**
    * Represents a submodule for unique map item information.
    */
-  public uniqueMap: UniqueMapModule;
+  public uniqueMap: Modules.UniqueMapModule;
 
   /**
    * Represents a submodule for unique weapon item information.
    */
-  public uniqueWeapon: UniqueWeaponModule;
+  public uniqueWeapon: Modules.UniqueWeaponModule;
 
   /**
    * Represents a submodule for vials item information.
    */
-  public vials: VialsModule;
+  public vials: Modules.VialsModule;
 
   /**
    * Represents a submodule for omen item information.
    */
-  public omen: OmenModule;
+  public omen: Modules.OmenModule;
 
   /**
    * Represents a submodule for memory item information.
    */
-  public memory: MemoryModule;
+  public memory: Modules.MemoryModule;
 
   /**
    * Represents a submodule for invitation item information.
    */
-  public invitation: InvitationModule;
+  public invitation: Modules.InvitationModule;
 
   /**
    * Represents a submodule for unique relics item information.
    */
-  public uniqueRelics: UniqueRelicsModule;
+  public uniqueRelics: Modules.UniqueRelicModule;
 
   /**
    * Represents a submodule for cluster jewel item information.
    */
-  public clusterJewel: ClusterJewelModule;
+  public clusterJewel: Modules.ClusterJewelModule;
 
   /**
    * Represents a submodule for blighted map item information.
    */
-  public blightedMap: BlightedMapModule;
+  public blightedMap: Modules.BlightedMapModule;
 
   /**
    * Represents a submodule for blight ravaged map item information.
    */
-  public blightRavagedMap: BlightRavagedMapModule;
+  public blightRavagedMap: Modules.BlightedRavagedMapModule;
 
   /**
    * Represents a submodule for coffin item information.
    */
-  public coffin: CoffinModule;
+  public coffin: Modules.CoffinModule;
 
   /**
    * Creates an instance of AllflameEmberModule.
    */
-  public allflameEmber: AllflameEmberModule;
+  public allflameEmber: Modules.AllflameEmberModule;
 
   /**
    * Creates a new instance of ItemViewModule.
@@ -155,34 +154,37 @@ export class ItemViewModule {
    * @param typeName - The type of item information to retrieve.
    */
   constructor(league: string, typeName: string) {
-    this.baseType = new BaseTypeModule(league, typeName);
-    this.beast = new BeastModule(league, typeName);
-    this.deliriumOrbs = new DeliriumOrbsModule(league, typeName);
-    this.divinationCard = new DivinationCardModule(league, typeName);
-    this.essence = new EssenceModule(league, typeName);
-    this.fossil = new FossilModule(league, typeName);
-    this.helmetEnchant = new HelmetEnchantModule(league, typeName);
-    this.incubator = new IncubatorModule(league, typeName);
-    this.map = new MapModule(league, typeName);
-    this.oil = new OilModule(league, typeName);
-    this.resonator = new ResonatorModule(league, typeName);
-    this.scarab = new ScarabModule(league, typeName);
-    this.skillGem = new SkillGemModule(league, typeName);
-    this.uniqueAccessory = new UniqueAccessoryModule(league, typeName);
-    this.uniqueArmour = new UniqueArmourModule(league, typeName);
-    this.uniqueFlask = new UniqueFlaskModule(league, typeName);
-    this.uniqueJewel = new UniqueJewelModule(league, typeName);
-    this.uniqueMap = new UniqueMapModule(league, typeName);
-    this.uniqueWeapon = new UniqueWeaponModule(league, typeName);
-    this.vials = new VialsModule(league, typeName);
-    this.omen = new OmenModule(league, typeName);
-    this.memory = new MemoryModule(league, typeName);
-    this.invitation = new InvitationModule(league, typeName);
-    this.uniqueRelics = new UniqueRelicsModule(league, typeName);
-    this.clusterJewel = new ClusterJewelModule(league, typeName);
-    this.blightedMap = new BlightedMapModule(league, typeName);
-    this.blightRavagedMap = new BlightRavagedMapModule(league, typeName);
-    this.coffin = new CoffinModule(league, typeName);
-    this.allflameEmber = new AllflameEmberModule(league, typeName);
+    this.baseType = new Modules.BaseTypeModule(league, typeName);
+    this.beast = new Modules.BeastModule(league, typeName);
+    this.deliriumOrbs = new Modules.DeliriumOrbsModule(league, typeName);
+    this.divinationCard = new Modules.DivinationCardModule(league, typeName);
+    this.essence = new Modules.EssenceModule(league, typeName);
+    this.fossil = new Modules.FossilModule(league, typeName);
+    this.helmetEnchant = new Modules.HelmetEnchantModule(league, typeName);
+    this.incubator = new Modules.IncubatorModule(league, typeName);
+    this.map = new Modules.MapModule(league, typeName);
+    this.oil = new Modules.OilModule(league, typeName);
+    this.resonator = new Modules.ResonatorModule(league, typeName);
+    this.scarab = new Modules.ScarabModule(league, typeName);
+    this.skillGem = new Modules.SkillGemModule(league, typeName);
+    this.uniqueAccessory = new Modules.UniqueAccessoryModule(league, typeName);
+    this.uniqueArmour = new Modules.UniqueArmourModule(league, typeName);
+    this.uniqueFlask = new Modules.UniqueFlaskModule(league, typeName);
+    this.uniqueJewel = new Modules.UniqueJewelModule(league, typeName);
+    this.uniqueMap = new Modules.UniqueMapModule(league, typeName);
+    this.uniqueWeapon = new Modules.UniqueWeaponModule(league, typeName);
+    this.vials = new Modules.VialsModule(league, typeName);
+    this.omen = new Modules.OmenModule(league, typeName);
+    this.memory = new Modules.MemoryModule(league, typeName);
+    this.invitation = new Modules.InvitationModule(league, typeName);
+    this.uniqueRelics = new Modules.UniqueRelicModule(league, typeName);
+    this.clusterJewel = new Modules.ClusterJewelModule(league, typeName);
+    this.blightedMap = new Modules.BlightedMapModule(league, typeName);
+    this.blightRavagedMap = new Modules.BlightedRavagedMapModule(
+      league,
+      typeName,
+    );
+    this.coffin = new Modules.CoffinModule(league, typeName);
+    this.allflameEmber = new Modules.AllflameEmberModule(league, typeName);
   }
 }

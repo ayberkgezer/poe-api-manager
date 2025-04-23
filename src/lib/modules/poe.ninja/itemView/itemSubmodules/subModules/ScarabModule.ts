@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling scarabs.
  */
-class ScarabModule extends PoeNinja {
+export class ScarabModule extends PoeNinja {
   /**
    * Creates an instance of ScarabModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class ScarabModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default ScarabModule;

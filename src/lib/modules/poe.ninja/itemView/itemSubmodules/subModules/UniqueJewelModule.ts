@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling unique jewels.
  */
-class UniqueJewelModule extends PoeNinja {
+export class UniqueJewelModule extends PoeNinja {
   /**
    * Creates an instance of UniqueJewelModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class UniqueJewelModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default UniqueJewelModule;

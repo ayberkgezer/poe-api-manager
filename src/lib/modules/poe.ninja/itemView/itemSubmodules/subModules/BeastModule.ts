@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling beasts.
  */
-class BeastModule extends PoeNinja {
+export class BeastModule extends PoeNinja {
   /**
    * Creates an instance of BeastModule.
    * @param league - The league name.
@@ -15,5 +15,3 @@ class BeastModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default BeastModule;

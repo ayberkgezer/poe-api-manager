@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents an item submodule for retrieving data on Coffin items.
  */
-class CoffinModule extends PoeNinja {
+export class CoffinModule extends PoeNinja {
   /**
    * Constructs an instance of CoffinModule.
    * @param league - The name of the league to retrieve data for.
@@ -14,5 +14,3 @@ class CoffinModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default CoffinModule;

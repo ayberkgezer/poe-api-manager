@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling memories.
  */
-class MemoryModule extends PoeNinja {
+export class MemoryModule extends PoeNinja {
   /**
    * Creates an instance of MemoryModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class MemoryModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default MemoryModule;

@@ -4,7 +4,7 @@ import filterProperties from "./mainfunctions/propertyFilter";
  * A utility class.
  * @class
  */
-class Utils {
+export class Utils {
   constructor() {}
 
   /**
@@ -43,5 +43,3 @@ class Utils {
     }
   }
 }
-
-export default Utils;

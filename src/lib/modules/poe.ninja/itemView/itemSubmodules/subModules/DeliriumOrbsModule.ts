@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling delirium orbs.
  */
-class DeliriumOrbsModule extends PoeNinja {
+export class DeliriumOrbsModule extends PoeNinja {
   /**
    * Creates an instance of DeliriumOrbsModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class DeliriumOrbsModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default DeliriumOrbsModule;

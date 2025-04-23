@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling unique accessories.
  */
-class UniqueAccessoryModule extends PoeNinja {
+export class UniqueAccessoryModule extends PoeNinja {
   /**
    * Creates an instance of UniqueAccessoryModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class UniqueAccessoryModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default UniqueAccessoryModule;

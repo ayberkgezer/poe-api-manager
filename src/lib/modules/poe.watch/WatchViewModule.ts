@@ -1,163 +1,139 @@
-import {
-  CurrencyModule,
-  AccessoryModule,
-  ArmourModule,
-  BaseModule,
-  BeastModule,
-  DeliriumOrbModule,
-  DivsModule,
-  EssenceModule,
-  FossilModule,
-  FragmentModule,
-  MapModule,
-  FlaskModule,
-  JewelModule,
-  GemModule,
-  InscribedModule,
-  InvitationModule,
-  OilModule,
-  ScarabModule,
-  SextantModule,
-  UniqueMapsModule,
-  WeaponModule,
-} from "./allModules/Modules";
+import * as Modules from "./allModules/Modules";
 
 /**
  * Represents a module for fetching data related to Watchstones and Watchstone Regions.
  */
-export class WatchViewModule {
+export default class WatchViewModule {
   /**
    * Module for fetching data related to Currency.
    */
-  public currency: CurrencyModule;
+  public currency: Modules.CurrencyModule;
 
   /**
    * Module for fetching data related to Accessories.
    */
-  public accessory: AccessoryModule;
+  public accessory: Modules.AccessoryModule;
 
   /**
    * Module for fetching data related to Armour.
    */
-  public armour: ArmourModule;
+  public armour: Modules.ArmourModule;
 
   /**
    * Module for fetching data related to Base.
    */
-  public base: BaseModule;
+  public base: Modules.BaseModule;
 
   /**
    * Module for fetching data related to Beast.
    */
-  public beast: BeastModule;
+  public beast: Modules.BeastModule;
 
   /**
    * Module for fetching data related to DeliriumOrb.
    */
-  public deliriumOrb: DeliriumOrbModule;
+  public deliriumOrb: Modules.DeliriumOrbModule;
 
   /**
    * Module for fetching data related to Divs.
    */
-  public divs: DivsModule;
+  public divs: Modules.DivsModule;
 
   /**
    * Module for fetching data related to Essence.
    */
-  public essence: EssenceModule;
+  public essence: Modules.EssenceModule;
 
   /**
    * Module for fetching data related to Fossil.
    */
-  public fossil: FossilModule;
+  public fossil: Modules.FossilModule;
 
   /**
    * Module for fetching data related to Fragment.
    */
-  public fragment: FragmentModule;
+  public fragment: Modules.FragmentModule;
 
   /**
    * Module for fetching data related to Map.
    */
-  public map: MapModule;
+  public map: Modules.MapModule;
 
   /**
    * Module for fetching data related to Flask.
    */
-  public flask: FlaskModule;
+  public flask: Modules.FlaskModule;
 
   /**
    * Module for fetching data related to Jewel.
    */
-  public jewel: JewelModule;
+  public jewel: Modules.JewelModule;
 
   /**
    * Module for fetching data related to Gem.
    */
-  public gem: GemModule;
+  public gem: Modules.GemModule;
 
   /**
    * Module for fetching data related to Inscribed.
    */
-  //public inscribed: InscribedModule;
+  //public inscribed: Modules.InscribedModule;
 
   /**
    * Module for fetching data related to Invitation.
    */
-  public invitation: InvitationModule;
+  public invitation: Modules.InvitationModule;
 
   /**
    * Module for fetching data related to Oil.
    */
-  public oil: OilModule;
+  public oil: Modules.OilModule;
 
   /**
    * Module for fetching data related to Scarab.
    */
-  public scarab: ScarabModule;
+  public scarab: Modules.ScarabModule;
 
   /**
    * Module for fetching data related to Sextant.
    */
-  public sextant: SextantModule;
+  public sextant: Modules.SextantModule;
 
   /**
    * Module for fetching data related to UniqueMaps.
    */
-  public uniqueMaps: UniqueMapsModule;
+  public uniqueMaps: Modules.UniqueMapsModule;
 
   /**
    * Module for fetching data related to Weapon.
    */
-  public weapon: WeaponModule;
+  public weapon: Modules.WeaponModule;
 
   /**
    * Creates an instance of WatchWievModule.
    * @param league - The league name to fetch data from.
    */
   constructor(league: string) {
-    this.currency = new CurrencyModule(league);
-    this.accessory = new AccessoryModule(league);
-    this.armour = new ArmourModule(league);
-    this.base = new BaseModule(league);
-    this.beast = new BeastModule(league);
-    this.essence = new EssenceModule(league);
-    this.fossil = new FossilModule(league);
-    this.fragment = new FragmentModule(league);
-    this.map = new MapModule(league);
-    this.flask = new FlaskModule(league);
-    this.jewel = new JewelModule(league);
-    this.gem = new GemModule(league);
-    this.invitation = new InvitationModule(league);
-    this.oil = new OilModule(league);
-    this.scarab = new ScarabModule(league);
-    this.sextant = new SextantModule(league);
-    this.weapon = new WeaponModule(league);
-    this.uniqueMaps = new UniqueMapsModule(league);
-    this.deliriumOrb = new DeliriumOrbModule(league);
-    this.divs = new DivsModule(league);
-    //this.inscribed = new InscribedModule(league);- not now
+    this.currency = new Modules.CurrencyModule(league);
+    this.accessory = new Modules.AccessoryModule(league);
+    this.armour = new Modules.ArmourModule(league);
+    this.base = new Modules.BaseModule(league);
+    this.beast = new Modules.BeastModule(league);
+    this.essence = new Modules.EssenceModule(league);
+    this.fossil = new Modules.FossilModule(league);
+    this.fragment = new Modules.FragmentModule(league);
+    this.map = new Modules.MapModule(league);
+    this.flask = new Modules.FlaskModule(league);
+    this.jewel = new Modules.JewelModule(league);
+    this.gem = new Modules.GemModule(league);
+    this.invitation = new Modules.InvitationModule(league);
+    this.oil = new Modules.OilModule(league);
+    this.scarab = new Modules.ScarabModule(league);
+    this.sextant = new Modules.SextantModule(league);
+    this.weapon = new Modules.WeaponModule(league);
+    this.uniqueMaps = new Modules.UniqueMapsModule(league);
+    this.deliriumOrb = new Modules.DeliriumOrbModule(league);
+    this.divs = new Modules.DivsModule(league);
+    //this.inscribed = new Modules.InscribedModule(league);- not now
   }
 }
-
-export default WatchViewModule;

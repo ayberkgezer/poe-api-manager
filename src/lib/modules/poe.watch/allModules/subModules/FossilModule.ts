@@ -3,7 +3,7 @@ import PoeWatch from "../../../../AbstractClass/PoeWatch";
 /**
  * Subclass of PoeWatch for accessing fossil data.
  */
-class FossilModule extends PoeWatch {
+export class FossilModule extends PoeWatch {
   /**
    * Creates a new instance of FossilModule.
    * @param league - The league from which the data will be fetched.
@@ -13,5 +13,3 @@ class FossilModule extends PoeWatch {
     super(league, type);
   }
 }
-
-export default FossilModule;

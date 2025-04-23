@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling invitations.
  */
-class InvitationModule extends PoeNinja {
+export class InvitationModule extends PoeNinja {
   /**
    * Creates an instance of InvitationModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class InvitationModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default InvitationModule;

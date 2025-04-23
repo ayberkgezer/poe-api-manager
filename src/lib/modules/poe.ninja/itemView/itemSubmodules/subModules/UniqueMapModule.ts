@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling unique maps.
  */
-class UniqueMapModule extends PoeNinja {
+export class UniqueMapModule extends PoeNinja {
   /**
    * Creates an instance of UniqueMapModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class UniqueMapModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default UniqueMapModule;

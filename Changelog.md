@@ -1,4 +1,6 @@
 # CHANGELOG
+## 1.2.22
+- 🛠️[Fix] Quick fix error.
 
 ## 1.2.20
 - 🚀[Added] CODE_OF_CONDUCT, CONTRIBUTING, and SECURITY policies.

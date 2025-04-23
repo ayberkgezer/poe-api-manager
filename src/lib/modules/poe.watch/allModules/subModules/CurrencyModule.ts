@@ -3,7 +3,7 @@ import PoeWatch from "../../../../AbstractClass/PoeWatch";
 /**
  * Subclass of PoeWatch for accessing currency data.
  */
-class CurrencyModule extends PoeWatch {
+export class CurrencyModule extends PoeWatch {
   /**
    * Creates a new instance of CurrencyModule.
    * @param league - The league from which the data will be fetched.
@@ -13,5 +13,3 @@ class CurrencyModule extends PoeWatch {
     super(league, type);
   }
 }
-
-export default CurrencyModule;

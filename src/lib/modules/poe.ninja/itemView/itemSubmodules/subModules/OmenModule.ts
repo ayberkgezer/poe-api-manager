@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling omens.
  */
-class OmenModule extends PoeNinja {
+export class OmenModule extends PoeNinja {
   /**
    * Creates an instance of OmenModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class OmenModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default OmenModule;

@@ -1,10 +1,10 @@
-import getCategory from "../../func/getCategory";
 import PoeWatch from "../../../../AbstractClass/PoeWatch";
+import getCategory from "../../func/getCategory";
 
 /**
  * Subclass of PoeWatch for accessing accessory data.
  */
-class AccessoryModule extends PoeWatch {
+export class AccessoryModule extends PoeWatch {
   /**
    * Creates a new instance of AccessoryModule.
    * @param {string} league - The league from which the data will be fetched.
@@ -32,5 +32,3 @@ class AccessoryModule extends PoeWatch {
     }
   }
 }
-
-export default AccessoryModule;

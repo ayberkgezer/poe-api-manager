@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling oils.
  */
-class OilModule extends PoeNinja {
+export class OilModule extends PoeNinja {
   /**
    * Creates an instance of OilModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class OilModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default OilModule;

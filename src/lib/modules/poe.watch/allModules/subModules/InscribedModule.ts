@@ -3,7 +3,7 @@ import PoeWatch from "../../../../AbstractClass/PoeWatch";
 /**
  * Subclass of PoeWatch for accessing inscribed data.
  */
-class InscribedModule extends PoeWatch {
+export class InscribedModule extends PoeWatch {
   /**
    * Creates a new instance of InscribedModule.
    * @param league - The league from which the data will be fetched.
@@ -13,5 +13,3 @@ class InscribedModule extends PoeWatch {
     super(league, type);
   }
 }
-
-export default InscribedModule;

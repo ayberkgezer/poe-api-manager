@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling unique flasks.
  */
-class UniqueFlaskModule extends PoeNinja {
+export class UniqueFlaskModule extends PoeNinja {
   /**
    * Creates an instance of UniqueFlaskModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class UniqueFlaskModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default UniqueFlaskModule;

@@ -4,8 +4,6 @@
  * @module poe-api-manager
  */
 
-import { NinjaAPI } from "./lib/NinjaAPI";
-import { WatchAPI } from "./lib/WatchAPI";
-import Utils from "./lib/Utils";
-
-export { NinjaAPI, WatchAPI, Utils };
+export * from "./lib/NinjaAPI";
+export * from "./lib/WatchAPI";
+export * from "./lib/Utils";

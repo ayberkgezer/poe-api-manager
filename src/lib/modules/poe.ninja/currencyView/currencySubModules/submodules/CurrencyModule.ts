@@ -5,7 +5,7 @@ import ApiError from "../../../../../errors/ApiError";
 /**
  * Represents a module for retrieving currency data from the PoeNinja API.
  */
-class CurrencyModule extends PoeNinja {
+export class CurrencyModule extends PoeNinja {
   /**
    * Creates an instance of CurrencyModule.
    * @param league - The name of the league.
@@ -54,5 +54,3 @@ class CurrencyModule extends PoeNinja {
     }
   }
 }
-
-export default CurrencyModule;

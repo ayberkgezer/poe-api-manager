@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling helmet enchants.
  */
-class HelmetEnchantModule extends PoeNinja {
+export class HelmetEnchantModule extends PoeNinja {
   /**
    * Creates an instance of HelmetEnchantModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class HelmetEnchantModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default HelmetEnchantModule;

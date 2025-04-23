@@ -1,14 +1,14 @@
 import IPoeNinja from "../Interfaces/IPoeNinja";
-import getData from "../modules/poe.ninja/func/getData";
-import CustomError from "../errors/CustomError";
 import ApiError from "../errors/ApiError";
+import CustomError from "../errors/CustomError";
+import getData from "../modules/poe.ninja/func/getData";
 /**
  * Abstract class representing a PoeNinja.
  * @abstract
  * @class
  * @implements {IPoeNinja}
  */
-abstract class PoeNinja implements IPoeNinja {
+export default abstract class PoeNinja implements IPoeNinja {
   /**
    * Represents a PoeNinja object.
    * @constructor
@@ -48,5 +48,3 @@ abstract class PoeNinja implements IPoeNinja {
     }
   }
 }
-
-export default PoeNinja;

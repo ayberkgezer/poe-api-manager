@@ -3,7 +3,7 @@ import PoeWatch from "../../../../AbstractClass/PoeWatch";
 /**
  * Subclass of PoeWatch for accessing map data.
  */
-class MapModule extends PoeWatch {
+export class MapModule extends PoeWatch {
   /**
    * Creates a new instance of MapModule.
    * @param league - The league from which the data will be fetched.
@@ -13,5 +13,3 @@ class MapModule extends PoeWatch {
     super(league, type);
   }
 }
-
-export default MapModule;

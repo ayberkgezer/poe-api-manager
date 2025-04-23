@@ -1,7 +1,2 @@
-import CurrencyModule from "./submodules/CurrencyModule";
-import FragmentModule  from "./submodules/FragmentModule";
-
-export {
-  CurrencyModule,
-  FragmentModule,
-};
+export * from "./submodules/CurrencyModule";
+export * from "./submodules/FragmentModule";
