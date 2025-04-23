@@ -1,4 +1,7 @@
 # CHANGELOG
+## 1.2.23
+- 🛠️[Fix] Refactor exports to use export * syntax
+
 ## 1.2.22
 - 🛠️[Fix] Quick fix error.
 
