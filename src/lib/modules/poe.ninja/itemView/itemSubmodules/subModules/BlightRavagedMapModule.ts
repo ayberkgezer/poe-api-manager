@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling blighted ravaged maps.
  */
-class BlightedRavagedMapModule extends PoeNinja {
+export class BlightedRavagedMapModule extends PoeNinja {
   /**
    * Creates an instance of BlightedRavagedMapModule.
    * @param league - The league name.
@@ -15,5 +15,3 @@ class BlightedRavagedMapModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default BlightedRavagedMapModule;

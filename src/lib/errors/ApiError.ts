@@ -5,7 +5,7 @@ import CustomError from "./CustomError";
  * @class
  * @extends {CustomError}
  */
-class ApiError extends CustomError {
+export default class ApiError extends CustomError {
   /**
    * The additional details of the error.
    * @type {any}
@@ -23,5 +23,3 @@ class ApiError extends CustomError {
     this.details = details;
   }
 }
-
-export default ApiError;

@@ -4,7 +4,7 @@ import getCategory from "../../func/getCategory";
 /**
  * Class for retrieving gem data from the POE Watch API.
  */
-class GemModule extends PoeWatch {
+export class GemModule extends PoeWatch {
   /**
    * Creates a new instance of GemModule.
    * @param league - The league from which the data will be fetched.
@@ -32,5 +32,3 @@ class GemModule extends PoeWatch {
     }
   }
 }
-
-export default GemModule;

@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling divination cards.
  */
-class DivinationCardModule extends PoeNinja {
+export class DivinationCardModule extends PoeNinja {
   /**
    * Creates an instance of DivinationCardModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class DivinationCardModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default DivinationCardModule;

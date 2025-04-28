@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling essences.
  */
-class EssenceModule extends PoeNinja {
+export class EssenceModule extends PoeNinja {
   /**
    * Creates an instance of EssenceModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class EssenceModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default EssenceModule;

@@ -1,7 +1,7 @@
-import { CurrencyViewModule } from "./modules/poe.ninja/currencyView/CurrencyViewModule";
-import { ItemViewModule } from "./modules/poe.ninja/itemView/ItemViewModule";
+import CurrencyViewModule from "./modules/poe.ninja/currencyView/CurrencyViewModule";
+import ItemViewModule from "./modules/poe.ninja/itemView/ItemViewModule";
 
-/**
+/*
  * Represents an API for interacting with the poe.ninja API.
  * @class
  */
@@ -12,7 +12,7 @@ export class NinjaAPI {
    */
   public currencyView: CurrencyViewModule;
 
-  /** 
+  /**
    * The ItemViewModule instance for fetching item-related data.
    * @type {ItemViewModule}
    */

@@ -3,7 +3,7 @@ import PoeWatch from "../../../../AbstractClass/PoeWatch";
 /**
  * Subclass of PoeWatch for accessing invitation data.
  */
-class InvitationModule extends PoeWatch {
+export class InvitationModule extends PoeWatch {
   /**
    * Creates a new instance of InvitationModule.
    * @param league - The league from which the data will be fetched.
@@ -13,5 +13,3 @@ class InvitationModule extends PoeWatch {
     super(league, type);
   }
 }
-
-export default InvitationModule;

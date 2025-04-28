@@ -3,7 +3,7 @@ import PoeWatch from "../../../../AbstractClass/PoeWatch";
 /**
  * Subclass of PoeWatch for accessing flask data.
  */
-class FlaskModule extends PoeWatch {
+export class FlaskModule extends PoeWatch {
   /**
    * Creates a new instance of FlaskModule.
    * @param league - The league from which the data will be fetched.
@@ -13,5 +13,3 @@ class FlaskModule extends PoeWatch {
     super(league, type);
   }
 }
-
-export default FlaskModule;

@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling base types.
  */
-class BaseTypeModule extends PoeNinja {
+export class BaseTypeModule extends PoeNinja {
   /**
    * Creates an instance of BaseTypeModule.
    * @param league - The league name.
@@ -15,5 +15,3 @@ class BaseTypeModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default BaseTypeModule;

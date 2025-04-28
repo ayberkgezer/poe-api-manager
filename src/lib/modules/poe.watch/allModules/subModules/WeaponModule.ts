@@ -4,7 +4,7 @@ import getCategory from "../../func/getCategory";
 /**
  * Subclass of PoeWatch for accessing weapon data.
  */
-class WeaponModule extends PoeWatch {
+export class WeaponModule extends PoeWatch {
   /**
    * Creates a new instance of WeaponModule.
    * @param league - The league from which the data will be fetched.
@@ -32,5 +32,3 @@ class WeaponModule extends PoeWatch {
     }
   }
 }
-
-export default WeaponModule;

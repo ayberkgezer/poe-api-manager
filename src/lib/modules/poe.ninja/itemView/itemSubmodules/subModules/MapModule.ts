@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling maps.
  */
-class MapModule extends PoeNinja {
+export class MapModule extends PoeNinja {
   /**
    * Creates an instance of MapModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class MapModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default MapModule;

@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling fragments in the PoeNinja currency view.
  */
-class FragmentModule extends PoeNinja {
+export class FragmentModule extends PoeNinja {
   /**
    * Creates an instance of FragmentModule.
    * @param league The league for which the module is created.
@@ -17,5 +17,3 @@ class FragmentModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default FragmentModule;

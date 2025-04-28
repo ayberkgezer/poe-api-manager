@@ -1,18 +1,18 @@
-import { CurrencyModule, FragmentModule } from "./currencySubModules/CurrencySubModules";
+import * as Modules from "./currencySubModules/CurrencySubModules";
 
 /**
  * Represents a module for fetching currency overview data.
  */
-export class CurrencyViewModule {
+export default class CurrencyViewModule {
   /**
    * Represents a module for fetching currency data.
    */
-  public currency: CurrencyModule;
+  public currency: Modules.CurrencyModule;
 
   /**
    * Represents a module for fetching fragment data.
    */
-  public fragment: FragmentModule;
+  public fragment: Modules.FragmentModule;
 
   /**
    * Creates a new CurrencyViewModule instance.
@@ -20,7 +20,7 @@ export class CurrencyViewModule {
    * @param typeName The type of data to retrieve.
    */
   constructor(league: string, typeName: string) {
-    this.currency = new CurrencyModule(league, typeName);
-    this.fragment = new FragmentModule(league, typeName);
+    this.currency = new Modules.CurrencyModule(league, typeName);
+    this.fragment = new Modules.FragmentModule(league, typeName);
   }
 }

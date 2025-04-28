@@ -4,7 +4,7 @@ import PoeWatch from "../../../../AbstractClass/PoeWatch";
 /**
  * Subclass of PoeWatch for accessing armour data.
  */
-class ArmourModule extends PoeWatch {
+export class ArmourModule extends PoeWatch {
   /**
    * Creates a new instance of ArmourModule.
    * @param {string} league - The league from which the data will be fetched.
@@ -32,5 +32,3 @@ class ArmourModule extends PoeWatch {
     }
   }
 }
-
-export default ArmourModule;

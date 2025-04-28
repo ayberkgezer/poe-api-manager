@@ -3,7 +3,7 @@ import PoeWatch from "../../../../AbstractClass/PoeWatch";
 /**
  * Subclass of PoeWatch for accessing fragment data.
  */
-class FragmentModule extends PoeWatch {
+export class FragmentModule extends PoeWatch {
   /**
    * Creates a new instance of FragmentModule.
    * @param league - The league from which the data will be fetched.
@@ -13,5 +13,3 @@ class FragmentModule extends PoeWatch {
     super(league, type);
   }
 }
-
-export default FragmentModule;

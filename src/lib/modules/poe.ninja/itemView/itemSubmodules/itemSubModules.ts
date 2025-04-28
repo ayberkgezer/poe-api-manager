@@ -1,61 +1,29 @@
-import BaseTypeModule from "./subModules/BaseTypeModule";
-import BeastModule from "./subModules/BeastModule";
-import DeliriumOrbsModule from "./subModules/DeliriumOrbsModule";
-import DivinationCardModule from "./subModules/DivinationCardModule";
-import EssenceModule from "./subModules/EssenceModule";
-import FossilModule from "./subModules/FossilModule";
-import HelmetEnchantModule from "./subModules/HelmetEnchantModule";
-import IncubatorModule from "./subModules/IncubatorModule";
-import MapModule from "./subModules/MapModule";
-import OilModule from "./subModules/OilModule";
-import ResonatorModule from "./subModules/ResonatorModule";
-import ScarabModule from "./subModules/ScarabModule";
-import SkillGemModule from "./subModules/SkillGemModule";
-import UniqueAccessoryModule from "./subModules/UniqueAccessoryModule";
-import UniqueArmourModule from "./subModules/UniqueArmourModule";
-import UniqueFlaskModule from "./subModules/UniqueFlaskModule";
-import UniqueJewelModule from "./subModules/UniqueJewelModule";
-import UniqueMapModule from "./subModules/UniqueMapModule";
-import UniqueWeaponModule from "./subModules/UniqueWeaponModule";
-import VialsModule from "./subModules/VialsModule";
-import OmenModule from "./subModules/OmenModule";
-import MemoryModule from "./subModules/MemoryModule";
-import InvitationModule from "./subModules/InvitationModule";
-import UniqueRelicsModule from "./subModules/UniqueRelicModule";
-import ClusterJewelModule from "./subModules/ClusterJewelModule";
-import BlightedMapModule from "./subModules/BlightedMapModule"
-import BlightRavagedMapModule from "./subModules/BlightRavagedMapModule";
-import CoffinModule from "./subModules/CoffinModule";
-import AllflameEmberModule from "./subModules/AllflameEmberModule";
-
-export {
-  BaseTypeModule,
-  BeastModule,
-  DeliriumOrbsModule,
-  DivinationCardModule,
-  EssenceModule,
-  FossilModule,
-  HelmetEnchantModule,
-  IncubatorModule,
-  MapModule,
-  OilModule,
-  ResonatorModule,
-  ScarabModule,
-  SkillGemModule,
-  UniqueAccessoryModule,
-  UniqueArmourModule,
-  UniqueFlaskModule,
-  UniqueJewelModule,
-  UniqueMapModule,
-  UniqueWeaponModule,
-  VialsModule,
-  OmenModule,
-  MemoryModule,
-  InvitationModule,
-  UniqueRelicsModule,
-  ClusterJewelModule,
-  BlightedMapModule,
-  BlightRavagedMapModule,
-  CoffinModule,
-  AllflameEmberModule
-};
+export * from "./subModules/BaseTypeModule";
+export * from "./subModules/BeastModule";
+export * from "./subModules/DeliriumOrbsModule";
+export * from "./subModules/DivinationCardModule";
+export * from "./subModules/EssenceModule";
+export * from "./subModules/FossilModule";
+export * from "./subModules/HelmetEnchantModule";
+export * from "./subModules/IncubatorModule";
+export * from "./subModules/MapModule";
+export * from "./subModules/OilModule";
+export * from "./subModules/ResonatorModule";
+export * from "./subModules/ScarabModule";
+export * from "./subModules/SkillGemModule";
+export * from "./subModules/UniqueAccessoryModule";
+export * from "./subModules/UniqueArmourModule";
+export * from "./subModules/UniqueFlaskModule";
+export * from "./subModules/UniqueJewelModule";
+export * from "./subModules/UniqueMapModule";
+export * from "./subModules/UniqueWeaponModule";
+export * from "./subModules/VialsModule";
+export * from "./subModules/OmenModule";
+export * from "./subModules/MemoryModule";
+export * from "./subModules/InvitationModule";
+export * from "./subModules/UniqueRelicModule";
+export * from "./subModules/ClusterJewelModule";
+export * from "./subModules/BlightedMapModule";
+export * from "./subModules/BlightRavagedMapModule";
+export * from "./subModules/CoffinModule";
+export * from "./subModules/AllflameEmberModule";

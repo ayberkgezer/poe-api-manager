@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling cluster jewels.
  */
-class ClusterJewelModule extends PoeNinja {
+export class ClusterJewelModule extends PoeNinja {
   /**
    * Creates an instance of ClusterJewelModule.
    * @param league - The league name.
@@ -15,5 +15,3 @@ class ClusterJewelModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default ClusterJewelModule;

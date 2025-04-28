@@ -4,7 +4,7 @@ import PoeWatch from "../../../../AbstractClass/PoeWatch";
 /**
  * Subclass of PoeWatch for accessing base data.
  */
-class BaseModule extends PoeWatch {
+export class BaseModule extends PoeWatch {
   /**
    * Creates a new instance of BaseModule.
    * @param league - The league from which the data will be fetched.
@@ -32,5 +32,3 @@ class BaseModule extends PoeWatch {
     }
   }
 }
-
-export default BaseModule;

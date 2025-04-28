@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling resonators.
  */
-class ResonatorModule extends PoeNinja {
+export class ResonatorModule extends PoeNinja {
   /**
    * Creates an instance of ResonatorModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class ResonatorModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default ResonatorModule;

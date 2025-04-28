@@ -3,7 +3,7 @@
  * @class
  * @extends {Error}
  */
-class CustomError extends Error {
+export default class CustomError extends Error {
   public statusCode: number;
 
   /**
@@ -18,5 +18,3 @@ class CustomError extends Error {
     Error.captureStackTrace(this, this.constructor);
   }
 }
-
-export default CustomError;

@@ -3,7 +3,7 @@ import PoeWatch from "../../../../AbstractClass/PoeWatch";
 /**
  * Subclass of PoeWatch for accessing div data.
  */
-class DivsModule extends PoeWatch {
+export class DivsModule extends PoeWatch {
   /**
    * Creates a new instance of DivsModule.
    * @param league - The league from which the data will be fetched.
@@ -13,5 +13,3 @@ class DivsModule extends PoeWatch {
     super(league, type);
   }
 }
-
-export default DivsModule;

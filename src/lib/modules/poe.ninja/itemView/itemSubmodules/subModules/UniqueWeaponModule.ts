@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling unique weapons.
  */
-class UniqueWeaponModule extends PoeNinja {
+export class UniqueWeaponModule extends PoeNinja {
   /**
    * Creates an instance of UniqueWeaponModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class UniqueWeaponModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default UniqueWeaponModule;

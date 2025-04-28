@@ -3,7 +3,7 @@ import PoeNinja from "../../../../../AbstractClass/PoeNinja";
 /**
  * Represents a module for handling unique relics.
  */
-class UniqueRelicModule extends PoeNinja {
+export class UniqueRelicModule extends PoeNinja {
   /**
    * Creates an instance of UniqueRelicModule.
    * @param league - The league name.
@@ -14,5 +14,3 @@ class UniqueRelicModule extends PoeNinja {
     super(league, typeName, type);
   }
 }
-
-export default UniqueRelicModule;

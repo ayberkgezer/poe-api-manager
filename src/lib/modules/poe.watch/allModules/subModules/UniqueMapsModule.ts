@@ -3,7 +3,7 @@ import PoeWatch from "../../../../AbstractClass/PoeWatch";
 /**
  * Subclass of WatchBaseClass for accessing uniqueMaps data.
  */
-class UniqueMapsModule extends PoeWatch {
+export class UniqueMapsModule extends PoeWatch {
   /**
    * Creates a new instance of UniqueMapsModule.
    * @param league - The league from which the data will be fetched.
@@ -13,5 +13,3 @@ class UniqueMapsModule extends PoeWatch {
     super(league, type);
   }
 }
-
-export default UniqueMapsModule;
