@@ -1,4 +1,24 @@
 # CHANGELOG
+## [2.2.0](https://github.com/ayberkgezer/poe-api-manager/compare/v2.1.0...v2.2.0) (2026-09-07)
+
+
+### Features
+
+* add Path of Exile 2 support for poe.ninja and poe.watch ([910b5ae](https://github.com/ayberkgezer/poe-api-manager/commit/910b5aed45392f011dd700e1467d6cb5c5b46247))
+* Path of Exile 2 support and structural cleanup ([844fd06](https://github.com/ayberkgezer/poe-api-manager/commit/844fd06f240a68260b5ba56977491e701a97dccc))
+* Update poe.watch API to include Unique Maps, Delirium Orb, and Divination Card; bump version to 1.2.19 ([fceba09](https://github.com/ayberkgezer/poe-api-manager/commit/fceba0990f3885c3bf60853bb9359dea95eb858c))
+
+
+### Bug Fixes
+
+* address review findings ([fd94fef](https://github.com/ayberkgezer/poe-api-manager/commit/fd94fefb9b427f1436b76c3e57c1144acc93e429))
+* make release-please actually create releases ([ad195f9](https://github.com/ayberkgezer/poe-api-manager/commit/ad195f9e4ce3ad008e49a466ebee170b39ada480))
+* make release-please create releases by pinning the component ([f8ae202](https://github.com/ayberkgezer/poe-api-manager/commit/f8ae202c4ae74dc48447515192972868c236d190))
+* migrate to new poe.ninja economy API ([1465a9d](https://github.com/ayberkgezer/poe-api-manager/commit/1465a9d2307bb3c9f1d3738e70b3afbc07fd9e6d))
+* preserve error types and remove redundant wrapping ([1b0a7d7](https://github.com/ayberkgezer/poe-api-manager/commit/1b0a7d72428c3c47be697e0486b2a12b7016aa45))
+* stop the Merge plugin from stripping the release branch component ([fa6a275](https://github.com/ayberkgezer/poe-api-manager/commit/fa6a2750928fba4566484fb1c0f4be0f84328059))
+* stop the Merge plugin from stripping the release branch component ([e64f908](https://github.com/ayberkgezer/poe-api-manager/commit/e64f908a8e36b9145a40070c45f53c30494c04db))
+
 ## [2.1.0](https://github.com/ayberkgezer/poe-api-manager/compare/v2.0.0...v2.1.0) (2026-09-07)
 
 
