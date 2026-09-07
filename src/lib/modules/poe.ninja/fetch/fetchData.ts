@@ -1,7 +1,11 @@
 import axios from "axios";
 import mergeData from "./merge/mergeData";
+import mergeExchangeData from "./merge/mergeExchangeData";
 import urlGenerator from "../func/urlGenerator";
 import ApiError from "../../../errors/ApiError";
+import CustomError from "../../../errors/CustomError";
+
+const { version: PACKAGE_VERSION } = require("../../../../../package.json");
 
 /**
  * Fetches data from a specified API endpoint, merges relevant data, and returns the result.
@@ -23,6 +27,7 @@ async function fetchData(
     const response = await axios.get(url, {
       headers: {
         "Accept-Encoding": "identity",
+        "User-Agent": `poe-api-manager/${PACKAGE_VERSION} (+https://github.com/ayberkgezer/poe-api-manager)`,
       },
     });
     //typwName is either currencyoverview or itemoverview
@@ -55,6 +60,23 @@ async function fetchData(
           { league, typeName, type },
         );
       }
+    } else if (typeName == "exchangeoverview") {
+      // CAVEAT: unlike the other two endpoints, the exchange endpoint returns
+      // HTTP 200 with an empty lines[] for an unknown type instead of a 404
+      // (verified live), so a bad type yields [] here rather than an error.
+      if (response.data && response.data.lines && response.data.items) {
+        return mergeExchangeData(
+          response.data.lines,
+          response.data.items,
+          response.data.core,
+        );
+      } else {
+        throw new ApiError(
+          `Invalid response format from POE Ninja API ExchangeView Type:${type}`,
+          400,
+          { league, typeName, type },
+        );
+      }
     } else {
       throw new ApiError(`Invalid type: ${type}`, 400, {
         league,
@@ -63,8 +85,8 @@ async function fetchData(
       });
     }
   } catch (error: any) {
-    // If it's already an ApiError, pass it through
-    if (error instanceof ApiError) {
+    // If it's already a typed error (ApiError/ValidationError), pass it through
+    if (error instanceof CustomError) {
       throw error;
     }
     // Handle axios errors with more context

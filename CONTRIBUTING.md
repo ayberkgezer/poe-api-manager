@@ -51,6 +51,35 @@ Please follow these steps to have your contribution considered by the maintainer
 - Please follow the coding style used throughout the project.
 - Ensure your code is properly formatted and linted.
 
+## Releasing
+
+Releases are cut by pushing a tag; merging to `main` does not publish.
+
+```bash
+# bump "version" in package.json, update Changelog.md, merge to main, then:
+git tag v2.0.0
+git push origin v2.0.0
+```
+
+`release.yml` then builds, tests, verifies the tag matches `package.json`,
+creates the GitHub release and publishes to npm.
+
+Publishing uses npm **trusted publishing** (OIDC) — there is no `NPM_TOKEN`
+secret. Authentication is a short-lived token minted per workflow run from the
+`id-token: write` permission. This requires a one-time setup at
+`npmjs.com/package/poe-api-manager/access` → Trusted Publisher:
+
+| Field | Value |
+| --- | --- |
+| Publisher | GitHub Actions |
+| Organization or user | `ayberkgezer` |
+| Repository | `poe-api-manager` |
+| Workflow filename | `release.yml` |
+| Environment | *(leave empty)* |
+
+If the workflow filename ever changes, update it there too or publishing will
+fail with a 404/auth error.
+
 ## License
 
 By contributing to poe-api-manager, you agree that your contributions will be licensed under its MIT License.

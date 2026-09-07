@@ -17,23 +17,17 @@ async function getData(
   type: string,
   requestedProperties?: string[],
 ): Promise<object[]> {
-  try {
-    const fetchedData: object[] = await fetchData(league, typeName, type);
+  const fetchedData: object[] = await fetchData(league, typeName, type);
 
-    //if requestedProperties use filterProperties to filter fetchedData
-    if (requestedProperties) {
-      const result: object[] = filterProperties(
-        fetchedData,
-        requestedProperties,
-      );
-      return result;
-    } else {
-      return fetchedData;
-    }
-  } catch (error) {
-    throw new Error(
-      `Type:${type} Error fetching data: ${(error as Error).message}`,
+  //if requestedProperties use filterProperties to filter fetchedData
+  if (requestedProperties) {
+    const result: object[] = filterProperties(
+      fetchedData,
+      requestedProperties,
     );
+    return result;
+  } else {
+    return fetchedData;
   }
 }
 

@@ -1,4 +1,4 @@
-import ValidationError from "../errors/ValidationError.js";
+import ValidationError from "../errors/ValidationError";
 
 /**
  * Filters properties of objects in an array based on the specified properties.
@@ -30,8 +30,6 @@ export default function filterProperties(
     requestedProperties.forEach((prop) => {
       if (Object.prototype.hasOwnProperty.call(item, prop)) {
         itemResult[prop] = item[prop];
-      } else {
-        console.warn(`Property not found: ${prop}`);
       }
     });
 

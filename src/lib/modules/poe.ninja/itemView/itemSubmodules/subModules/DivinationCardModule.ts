@@ -11,6 +11,6 @@ export class DivinationCardModule extends PoeNinja {
    */
   constructor(league: string, typeName: string) {
     const type: string = "DivinationCard";
-    super(league, typeName, type);
+    super(league, "exchangeoverview", type);
   }
 }

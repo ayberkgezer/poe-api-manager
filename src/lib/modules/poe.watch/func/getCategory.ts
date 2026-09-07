@@ -1,5 +1,7 @@
 import fetchData from "../fetch/watchFetch";
 import ValidationError from "../../../errors/ValidationError";
+import ApiError from "../../../errors/ApiError";
+import CustomError from "../../../errors/CustomError";
 
 /**
  * Fetches data based on the provided query URL and filters it by category name.
@@ -44,14 +46,15 @@ async function getCategory(
 
     return filteredData;
   } catch (error) {
-    // If it's already a custom error, pass it through
-    if (error instanceof ValidationError) {
+    // If it's already a custom error (validation, api, ...), pass it through unchanged
+    if (error instanceof CustomError) {
       throw error;
     }
 
-    throw new ValidationError(
+    // Only genuinely unknown errors (network failures, etc.) get wrapped, as a 500
+    throw new ApiError(
       `Error fetching or filtering data for category: ${(error as Error).message}`,
-      400,
+      500,
       { league, type, categoryName },
     );
   }

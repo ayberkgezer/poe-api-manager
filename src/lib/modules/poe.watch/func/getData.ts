@@ -11,19 +11,15 @@ import filterProperties from "../../../mainfunctions/propertyFilter";
  * @throws - Throws an error if there is an issue fetching or filtering the data.
  */
 async function getData(league: string, type: string, requestedProperties?: string[]): Promise<object[]> {
-  try {
-    const fetchedData: object[] = await fetchData(league, type);
+  const fetchedData: object[] = await fetchData(league, type);
 
-    // If requestedProperties are specified, filter the data based on those properties
-    if (requestedProperties && requestedProperties.length > 0) {
-      const result: object[] = filterProperties(fetchedData, requestedProperties);
-      return result;
-    } else {
-      // If no specific properties are requested, return the entire fetched data
-      return fetchedData;
-    }
-  } catch (error) {
-    throw new Error(`Error fetching data: ${(error as Error).message}`);
+  // If requestedProperties are specified, filter the data based on those properties
+  if (requestedProperties && requestedProperties.length > 0) {
+    const result: object[] = filterProperties(fetchedData, requestedProperties);
+    return result;
+  } else {
+    // If no specific properties are requested, return the entire fetched data
+    return fetchedData;
   }
 }
 

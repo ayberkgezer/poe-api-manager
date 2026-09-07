@@ -4,7 +4,6 @@ export * from "./subModules/DeliriumOrbsModule";
 export * from "./subModules/DivinationCardModule";
 export * from "./subModules/EssenceModule";
 export * from "./subModules/FossilModule";
-export * from "./subModules/HelmetEnchantModule";
 export * from "./subModules/IncubatorModule";
 export * from "./subModules/MapModule";
 export * from "./subModules/OilModule";

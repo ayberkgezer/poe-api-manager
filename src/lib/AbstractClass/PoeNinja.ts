@@ -29,7 +29,7 @@ export default abstract class PoeNinja implements IPoeNinja {
    */
   public async getData(requestedProperties?: string[]): Promise<object[]> {
     try {
-      return getData(
+      return await getData(
         this.league,
         this.typeName,
         this.type,

@@ -11,6 +11,6 @@ export class FossilModule extends PoeNinja {
    */
   constructor(league: string, typeName: string) {
     const type: string = "Fossil";
-    super(league, typeName, type);
+    super(league, "exchangeoverview", type);
   }
 }

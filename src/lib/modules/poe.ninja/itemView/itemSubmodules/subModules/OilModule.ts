@@ -11,6 +11,6 @@ export class OilModule extends PoeNinja {
    */
   constructor(league: string, typeName: string) {
     const type: string = "Oil";
-    super(league, typeName, type);
+    super(league, "exchangeoverview", type);
   }
 }

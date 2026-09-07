@@ -1,14 +1,20 @@
 {
   "name": "poe-api-manager",
-  "version": "1.2.23",
+  "version": "2.0.0",
   "description": "poe.ninja and poe.watch API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc && terser dist/index.js -o dist/index.min.js",
-    "dev": "tsc --watch --project ./tsconfig.json && node --watch ./dist/index.js",
-    "test-1": "ts-node test/test1.ts",
-    "test": "node test/test.js"
+    "build": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && tsc && terser dist/index.js -o dist/index.min.js",
+    "dev": "tsc --watch --project ./tsconfig.json",
+    "test": "npm run build && node --test test/*.test.js"
+  },
+  "files": [
+    "dist",
+    "Changelog.md"
+  ],
+  "engines": {
+    "node": ">=18"
   },
   "repository": {
     "type": "git",
@@ -39,11 +45,11 @@
   "author": "Ayberk Gezer",
   "license": "MIT",
   "devDependencies": {
-    "terser": "^5.29.2",
+    "terser": "^5.51.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.3"
+    "typescript": "^5.9.3"
   },
   "dependencies": {
-    "axios": "^1.6.8"
+    "axios": "^1.20.0"
   }
 }

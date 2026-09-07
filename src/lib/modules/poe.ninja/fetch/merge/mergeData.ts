@@ -15,18 +15,18 @@ function mergeData(lines: any[], currencyDetails: any[]): any[] {
             (detail) => detail.name === currencyType
         );
 
-        if (currencyDetail) {
-            // Merge line and currencyDetail into a new object
-            const mergedItem: any = {
+        // Merge line and currencyDetail into a new object. Keep unmatched lines
+        // as-is instead of dropping them.
+        const mergedItem: any = currencyDetail
+            ? {
                 ...line,
                 id: currencyDetail.id,
                 icon: currencyDetail.icon,
                 name: currencyDetail.name,
-            };
+            }
+            : { ...line };
 
-            // Add the merged item to the result array
-            mergedData.push(mergedItem);
-        }
+        mergedData.push(mergedItem);
     });
 
     return mergedData;

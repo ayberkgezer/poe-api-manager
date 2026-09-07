@@ -23,12 +23,6 @@ export class BaseModule extends PoeWatch {
    * @throws - Throws errors encountered while fetching data.
    */
   async getCategory(categoryName: string): Promise<object[]> {
-    try {
-      return await getCategory(this.league, this.type, categoryName);
-    } catch (error) {
-      throw new Error(
-        `Error fetching Accessory data: ${(error as Error).message}`,
-      );
-    }
+    return await getCategory(this.league, this.type, categoryName);
   }
 }

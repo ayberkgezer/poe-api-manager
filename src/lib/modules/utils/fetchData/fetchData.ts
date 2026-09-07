@@ -7,16 +7,12 @@ import axios from "axios";
  * @throws If an error occurs during the fetch process.
  */
 async function fetchData(url: string): Promise<{ data: any[] }> {
-  try {
-    const response: any = await axios.get(url, {
-      headers: {
-        'Accept-Encoding': 'identity',
-      },
-    });
-    return response;
-  } catch (error) {
-    throw new Error(`Error fetching data: ${(error as Error).message}`);
-  }
+  const response: any = await axios.get(url, {
+    headers: {
+      'Accept-Encoding': 'identity',
+    },
+  });
+  return response;
 }
 
 export default fetchData;

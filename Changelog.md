@@ -1,4 +1,27 @@
 # CHANGELOG
+## 2.0.0
+- 💥[Breaking] poe.ninja removed its old `/api/data/*` endpoints; the library now
+  targets the new `poe.ninja/poe1/api/economy/*` endpoints.
+- 💥[Breaking] DeliriumOrb, DivinationCard, Essence, Fossil, Oil, Resonator,
+  Scarab, Omen and AllflameEmber are now served by the new exchange endpoint,
+  which adds/renames some value fields (e.g. `primaryValue`, conditional
+  `chaosValue`).
+- 💥[Breaking] `itemView.helmetEnchant` removed; poe.ninja removed it upstream.
+- 💥[Breaking] Errors thrown by the library are now typed `ApiError` /
+  `ValidationError` (with `statusCode` and `details`) instead of plain `Error`.
+- 💥[Breaking] An unknown `type` on the exchange endpoint, and an invalid league
+  name on the exchange and item endpoints, now resolve to an empty array
+  instead of throwing — poe.ninja answers HTTP 200 with empty `lines` there.
+  The currency endpoint still throws `ApiError` if the response omits
+  `currencyDetails`.
+- 💥[Breaking] Releases are now cut by pushing a `v*` git tag instead of
+  automatically on every push to `main`.
+- 🛠️[Fix] Publishing now uses npm trusted publishing (OIDC) instead of an
+  `NPM_TOKEN` secret; npm permanently revoked classic tokens in February 2026.
+- 🛠️[Fix] `mergeData` no longer silently drops currency lines it can't join.
+- 🛠️[Fix] League/type values are now URL-encoded when building requests.
+- 🚀[Added] `ApiError`, `ValidationError` and `CustomError` are now exported.
+
 ## 1.2.23
 - 🛠️[Fix] Refactor exports to use export * syntax
 

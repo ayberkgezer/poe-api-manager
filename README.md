@@ -3,9 +3,10 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/ayberkgezer/poe-api-manager)
 ![GitHub top language](https://img.shields.io/github/languages/top/ayberkgezer/poe-api-manager?logo=typescript)
-[![ISSUES](https://img.shields.io/github/issues/ayberkgezer/poe-api-manager-ts)](https://github.com/ayberkgezer/poe-api-manager/issues)
+[![ISSUES](https://img.shields.io/github/issues/ayberkgezer/poe-api-manager)](https://github.com/ayberkgezer/poe-api-manager/issues)
+[![npm](https://img.shields.io/npm/v/poe-api-manager?logo=npm)](https://www.npmjs.com/package/poe-api-manager)
 ![NPM Downloads](https://img.shields.io/npm/dt/poe-api-manager?logo=npm)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/ayberkgezer/poe-api-manager/build.yml)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/ayberkgezer/poe-api-manager/ci.yml)
 
 
 - [Introduction](#introduction)
@@ -84,16 +85,15 @@ ninjaAPI.currencyView.currency.getQuickCurrency(currencyTypeName).then((data)=> 
 What we can get here is as follows.
 - BaseType
 - Beast
-- Delirium Orbs
-- Divination Cards
-- Essences
-- Fossils
-- Helment Enchant
+- Delirium Orbs *(exchange)*
+- Divination Cards *(exchange)*
+- Essences *(exchange)*
+- Fossils *(exchange)*
 - Incubators
 - Maps
-- Oils
-- Resanators
-- Scarabs
+- Oils *(exchange)*
+- Resanators *(exchange)*
+- Scarabs *(exchange)*
 - Skill Gems
 - Unique Accessories
 - Unique Armours
@@ -102,7 +102,7 @@ What we can get here is as follows.
 - Unique Maps
 - Unique Weapons
 - Vials
-- Omens
+- Omens *(exchange)*
 - Unique Relics
 - Cluster Jewels
 - Blighted Maps
@@ -110,7 +110,11 @@ What we can get here is as follows.
 - Invitations
 - Memories
 - Coffins
-- Allflame Embers
+- Allflame Embers *(exchange)*
+
+> *(exchange)* means poe.ninja serves this type from its exchange endpoint instead
+> of the stash endpoint. The data shape is normalized to the same `{id, name, icon}`
+> contract as everything else, with an added `chaosValue` where applicable.
 
 - getData() => function returns data purely.
 ```javascript
@@ -201,6 +205,23 @@ utils.getLeagues().then((data) => {
 ```javascript
 utils.filterProperties(data, ["currencyTypeName", "chaosEquivalent"])
   .then((result) => console.log(result));
+```
+
+## Error handling
+Errors thrown by this library are `ApiError` / `ValidationError` (both extend
+`CustomError`), carrying a `statusCode` and optional `details`.
+```javascript
+const { NinjaAPI, ApiError } = require("poe-api-manager");
+
+const ninjaAPI = new NinjaAPI("Standard");
+
+try {
+  await ninjaAPI.currencyView.currency.getData();
+} catch (err) {
+  if (err instanceof ApiError) {
+    console.error(err.statusCode, err.message, err.details);
+  }
+}
 ```
 
 
