@@ -16,6 +16,8 @@
   `currencyDetails`.
 - 💥[Breaking] Releases are now cut by pushing a `v*` git tag instead of
   automatically on every push to `main`.
+- 🛠️[Fix] Publishing now uses npm trusted publishing (OIDC) instead of an
+  `NPM_TOKEN` secret; npm permanently revoked classic tokens in February 2026.
 - 🛠️[Fix] `mergeData` no longer silently drops currency lines it can't join.
 - 🛠️[Fix] League/type values are now URL-encoded when building requests.
 - 🚀[Added] `ApiError`, `ValidationError` and `CustomError` are now exported.
