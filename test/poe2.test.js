@@ -41,9 +41,11 @@ test("unwrapItems throws ApiError when items is missing", () => {
 });
 
 test("filterByCategory filters on the category field, not group", () => {
+  // group deliberately disagrees with category: PoE1 filters on `group`, PoE2 on
+  // `category`, and this fixture fails if the two are ever conflated.
   const items = [
-    { name: "Divine Orb", category: "currency", group: "currency" },
-    { name: "Chest", category: "armour", group: "bodyarmours" },
+    { name: "Divine Orb", category: "currency", group: "stackable" },
+    { name: "Chest", category: "armour", group: "currency" },
   ];
   assert.deepStrictEqual(filterByCategory(items, "currency"), [items[0]]);
 });
