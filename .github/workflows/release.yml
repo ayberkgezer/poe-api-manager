@@ -12,15 +12,23 @@ permissions:
   pull-requests: write
 
 jobs:
+  # Split in two on purpose. release-please builds the next release PR in the
+  # same run that it creates a release -- and because the release is a draft,
+  # its tag does not exist yet, so the PR it builds looks past the version just
+  # released and proposes a bogus next one. Creating the release here and
+  # building the PR only after publish has undrafted it (see release-pr below)
+  # means the tag is always visible when the PR is built.
   release-please:
     runs-on: ubuntu-latest
     outputs:
       released: ${{ steps.release.outputs.release_created }}
       tag: ${{ steps.release.outputs.tag_name }}
     steps:
-      - name: 🔖 Release please
+      - name: 🔖 Create the GitHub release
         id: release
         uses: googleapis/release-please-action@v5
+        with:
+          skip-github-pull-request: true
 
   # Publishing lives in this workflow rather than a tag-triggered one because a
   # tag pushed by GITHUB_TOKEN does not trigger other workflows, so a separate
@@ -78,3 +86,20 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG: ${{ needs.release-please.outputs.tag }}
+
+  # Runs once the tag exists, or straight after release-please when there was
+  # nothing to release. Skipped when publishing failed, so a broken release does
+  # not also spawn a release PR for the next version.
+  release-pr:
+    needs: [release-please, publish]
+    if: ${{ always() && needs.release-please.result == 'success' && needs.publish.result != 'failure' && needs.publish.result != 'cancelled' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: 🔖 Build the next release PR
+        uses: googleapis/release-please-action@v5
+        with:
+          skip-github-release: true
