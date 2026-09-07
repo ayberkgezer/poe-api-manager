@@ -67,6 +67,13 @@ Write [conventional commits](https://www.conventionalcommits.org/) on `main`:
 `release-please` accumulates those commits into a release PR that bumps
 `package.json` and writes `Changelog.md`. **Merging that PR is the release.**
 
+Two habits keep the changelog readable:
+
+- **Squash-merge feature PRs.** A merge commit whose message is also conventional
+  gets counted alongside the branch commit, and the entry appears twice.
+- **Use `ci:` or `chore:` for release-pipeline changes.** They are not user-facing,
+  and `fix:` puts them in the changelog under Bug Fixes.
+
 What happens on merge:
 
 1. The GitHub release is created as a **draft** — GitHub does not create the git

@@ -1,19 +1,14 @@
 # CHANGELOG
 ## [2.1.0](https://github.com/ayberkgezer/poe-api-manager/compare/v2.0.0...v2.1.0) (2026-09-07)
 
-
 ### Features
 
-* add Path of Exile 2 support for poe.ninja and poe.watch ([910b5ae](https://github.com/ayberkgezer/poe-api-manager/commit/910b5aed45392f011dd700e1467d6cb5c5b46247))
-* Path of Exile 2 support and structural cleanup ([844fd06](https://github.com/ayberkgezer/poe-api-manager/commit/844fd06f240a68260b5ba56977491e701a97dccc))
+* Path of Exile 2 support for poe.ninja and poe.watch — new `Poe2NinjaAPI` and
+  `Poe2WatchAPI`, plus `Utils.getPoe1Leagues()` and `Utils.getPoe2Leagues()` for
+  league discovery ([844fd06](https://github.com/ayberkgezer/poe-api-manager/commit/844fd06f240a68260b5ba56977491e701a97dccc))
 
-
-### Bug Fixes
-
-* make release-please actually create releases ([ad195f9](https://github.com/ayberkgezer/poe-api-manager/commit/ad195f9e4ce3ad008e49a466ebee170b39ada480))
-* make release-please create releases by pinning the component ([f8ae202](https://github.com/ayberkgezer/poe-api-manager/commit/f8ae202c4ae74dc48447515192972868c236d190))
-* stop the Merge plugin from stripping the release branch component ([fa6a275](https://github.com/ayberkgezer/poe-api-manager/commit/fa6a2750928fba4566484fb1c0f4be0f84328059))
-* stop the Merge plugin from stripping the release branch component ([e64f908](https://github.com/ayberkgezer/poe-api-manager/commit/e64f908a8e36b9145a40070c45f53c30494c04db))
+The PoE1 API is unchanged. PoE2 values are `primaryValue` denominated in divine,
+and PoE2 item data is only populated for active leagues.
 
 ## 2.0.0
 - 💥[Breaking] poe.ninja removed its old `/api/data/*` endpoints; the library now
