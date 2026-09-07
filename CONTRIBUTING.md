@@ -53,20 +53,33 @@ Please follow these steps to have your contribution considered by the maintainer
 
 ## Releasing
 
-Releases are cut by pushing a tag; merging to `main` does not publish.
+Releases are automated from commit messages — nothing is tagged by hand.
 
-```bash
-# bump "version" in package.json, update Changelog.md, merge to main, then:
-git tag v2.0.0
-git push origin v2.0.0
-```
+Write [conventional commits](https://www.conventionalcommits.org/) on `main`:
 
-`release.yml` then builds, tests, verifies the tag matches `package.json`,
-creates the GitHub release and publishes to npm.
+| Prefix | Version bump |
+| --- | --- |
+| `fix:` | patch (2.0.0 → 2.0.1) |
+| `feat:` | minor (2.0.0 → 2.1.0) |
+| `feat!:` or a `BREAKING CHANGE:` footer | major (2.0.0 → 3.0.0) |
+| `chore:`, `ci:`, `docs:`, `test:` | none |
 
-Publishing uses npm **trusted publishing** (OIDC) — there is no `NPM_TOKEN`
-secret. Authentication is a short-lived token minted per workflow run from the
-`id-token: write` permission. This requires a one-time setup at
+`release-please` accumulates those commits into a release PR that bumps
+`package.json` and writes `Changelog.md`. **Merging that PR is the release.**
+
+What happens on merge:
+
+1. The GitHub release is created as a **draft** — GitHub does not create the git
+   tag for a draft, so nothing is public yet.
+2. The package is built, tested and published to npm.
+3. Only then is the release undrafted, which creates the tag.
+
+If npm rejects the publish, the run fails at step 2 and there is no tag and no
+visible release — retry by re-running the failed job once the cause is fixed.
+
+Publishing uses npm **trusted publishing** (OIDC), so there is no `NPM_TOKEN`
+secret; authentication is a short-lived token minted per run from the
+`id-token: write` permission. This needs a one-time setup at
 `npmjs.com/package/poe-api-manager/access` → Trusted Publisher:
 
 | Field | Value |
@@ -77,8 +90,8 @@ secret. Authentication is a short-lived token minted per workflow run from the
 | Workflow filename | `release.yml` |
 | Environment | *(leave empty)* |
 
-If the workflow filename ever changes, update it there too or publishing will
-fail with a 404/auth error.
+The workflow filename is pinned there, so renaming `release.yml` breaks
+publishing until it is updated on npm too.
 
 ## License
 
