@@ -7,6 +7,7 @@ const mergeExchangeData = require("../dist/lib/modules/poe.ninja/fetch/merge/mer
 const urlGenerator = require("../dist/lib/modules/poe.ninja/func/urlGenerator").default;
 const watchUrlGenerator = require("../dist/lib/modules/poe.watch/func/WatchUrlGenerator").default;
 const ValidationError = require("../dist/lib/errors/ValidationError").default;
+const fetchData = require("../dist/lib/modules/poe.ninja/fetch/fetchData").default;
 
 test("filterProperties picks only requested props and omits missing ones", () => {
   const result = filterProperties([{ a: 1, b: 2 }], ["a", "missing"]);
@@ -83,5 +84,14 @@ test("WatchUrlGenerator encodes a league containing a space and an &", () => {
   assert.strictEqual(
     url,
     "https://api.poe.watch/get?category=currency&league=Standard%20%26%20Co",
+  );
+});
+
+test("fetchData rethrows ValidationError for an unknown typeName without hitting the network", async () => {
+  // urlGenerator throws before axios.get is reached, so this makes no request.
+  // Also forces dist/.../fetchData.js to load, catching a broken package.json require path.
+  await assert.rejects(
+    () => fetchData("Standard", "bogus", "Oil"),
+    ValidationError,
   );
 });
