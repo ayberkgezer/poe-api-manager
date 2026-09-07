@@ -11,6 +11,6 @@ export class DeliriumOrbsModule extends PoeNinja {
    */
   constructor(league: string, typeName: string) {
     const type: string = "DeliriumOrb";
-    super(league, typeName, type);
+    super(league, "exchangeoverview", type);
   }
 }

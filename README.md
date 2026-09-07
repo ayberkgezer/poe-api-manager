@@ -89,7 +89,6 @@ What we can get here is as follows.
 - Divination Cards
 - Essences
 - Fossils
-- Helment Enchant
 - Incubators
 - Maps
 - Oils

@@ -11,6 +11,6 @@ export class ResonatorModule extends PoeNinja {
    */
   constructor(league: string, typeName: string) {
     const type: string = "Resonator";
-    super(league, typeName, type);
+    super(league, "exchangeoverview", type);
   }
 }

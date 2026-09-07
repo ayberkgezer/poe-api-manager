@@ -34,11 +34,6 @@ export default class ItemViewModule {
   public fossil: Modules.FossilModule;
 
   /**
-   * Represents a submodule for helmet enchant item information.
-   */
-  public helmetEnchant: Modules.HelmetEnchantModule;
-
-  /**
    * Represents a submodule for incubator item information.
    */
   public incubator: Modules.IncubatorModule;
@@ -160,7 +155,6 @@ export default class ItemViewModule {
     this.divinationCard = new Modules.DivinationCardModule(league, typeName);
     this.essence = new Modules.EssenceModule(league, typeName);
     this.fossil = new Modules.FossilModule(league, typeName);
-    this.helmetEnchant = new Modules.HelmetEnchantModule(league, typeName);
     this.incubator = new Modules.IncubatorModule(league, typeName);
     this.map = new Modules.MapModule(league, typeName);
     this.oil = new Modules.OilModule(league, typeName);

@@ -11,6 +11,6 @@ export class AllflameEmberModule extends PoeNinja {
   constructor(league: string, typeName: string) {
     // The type name.
     const type: string = "AllflameEmber";
-    super(league, typeName, type);
+    super(league, "exchangeoverview", type);
   }
 }

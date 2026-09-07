@@ -1,5 +1,6 @@
 import axios from "axios";
 import mergeData from "./merge/mergeData";
+import mergeExchangeData from "./merge/mergeExchangeData";
 import urlGenerator from "../func/urlGenerator";
 import ApiError from "../../../errors/ApiError";
 
@@ -23,6 +24,7 @@ async function fetchData(
     const response = await axios.get(url, {
       headers: {
         "Accept-Encoding": "identity",
+        "User-Agent": "poe-api-manager/2.0.0 (+https://github.com/ayberkgezer/poe-api-manager)",
       },
     });
     //typwName is either currencyoverview or itemoverview
@@ -51,6 +53,23 @@ async function fetchData(
       } else {
         throw new ApiError(
           `Invalid response format from POE Ninja API ItemView Type:${type}`,
+          400,
+          { league, typeName, type },
+        );
+      }
+    } else if (typeName == "exchangeoverview") {
+      // CAVEAT: unlike the other two endpoints, the exchange endpoint returns
+      // HTTP 200 with an empty lines[] for an unknown type instead of a 404
+      // (verified live), so a bad type yields [] here rather than an error.
+      if (response.data && response.data.lines && response.data.items) {
+        return mergeExchangeData(
+          response.data.lines,
+          response.data.items,
+          response.data.core,
+        );
+      } else {
+        throw new ApiError(
+          `Invalid response format from POE Ninja API ExchangeView Type:${type}`,
           400,
           { league, typeName, type },
         );

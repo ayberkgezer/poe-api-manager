@@ -5,6 +5,5 @@
  * @returns {string} - The generated URL.
  */
 export default function urlGenerator(league: string, type: string): string {
-    return `https://api.poe.watch/get?category=${type}&league=${league}`;
+    return `https://api.poe.watch/get?category=${encodeURIComponent(type)}&league=${encodeURIComponent(league)}`;
   }
-  

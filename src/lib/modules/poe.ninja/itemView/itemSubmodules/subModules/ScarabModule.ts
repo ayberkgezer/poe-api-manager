@@ -11,6 +11,6 @@ export class ScarabModule extends PoeNinja {
    */
   constructor(league: string, typeName: string) {
     const type: string = "Scarab";
-    super(league, typeName, type);
+    super(league, "exchangeoverview", type);
   }
 }
