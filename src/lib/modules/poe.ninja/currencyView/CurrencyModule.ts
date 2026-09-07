@@ -1,7 +1,7 @@
-import PoeNinja from "../../../../../AbstractClass/PoeNinja";
-import getQuickCurrency from "../../../func/getQuickCurrency";
-import CustomError from "../../../../../errors/CustomError";
-import ApiError from "../../../../../errors/ApiError";
+import PoeNinja from "../../../AbstractClass/PoeNinja";
+import getQuickCurrency from "../func/getQuickCurrency";
+import CustomError from "../../../errors/CustomError";
+import ApiError from "../../../errors/ApiError";
 /**
  * Represents a module for retrieving currency data from the PoeNinja API.
  */
