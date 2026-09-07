@@ -27,6 +27,11 @@ jobs:
           cache: npm
           registry-url: https://registry.npmjs.org
 
+      # npm >= 11.5.1 is required for OIDC publishing. A 404 on publish is npm
+      # masking an auth failure, so knowing this version up front saves a cycle.
+      - name: 🔎 Show npm version
+        run: npm -v
+
       - name: 🍳 Install dependencies
         run: npm ci
 
@@ -45,8 +50,14 @@ jobs:
             exit 1
           fi
 
+      # Idempotent so the job can be re-run after a failed publish without
+      # tripping over an already-created release.
       - name: 🚀 Create GitHub release
-        run: gh release create ${{ github.ref_name }} --title "poe-api-manager ${{ github.ref_name }}" --notes "[CHANGELOG](https://github.com/ayberkgezer/poe-api-manager/blob/main/Changelog.md)"
+        run: |
+          gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 && exit 0
+          gh release create "$GITHUB_REF_NAME" \
+            --title "poe-api-manager $GITHUB_REF_NAME" \
+            --notes "[CHANGELOG](https://github.com/ayberkgezer/poe-api-manager/blob/main/Changelog.md)"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
