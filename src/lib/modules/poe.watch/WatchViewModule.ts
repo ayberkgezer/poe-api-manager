@@ -1,139 +1,93 @@
-import * as Modules from "./allModules/Modules";
+import PoeWatch from "../../AbstractClass/PoeWatch";
+import PoeWatchLeaf from "../../AbstractClass/PoeWatchLeaf";
+import { AccessoryModule } from "./allModules/subModules/AccessoryModule";
+import { ArmourModule } from "./allModules/subModules/ArmourModule";
+import { BaseModule } from "./allModules/subModules/BaseModule";
+import { GemModule } from "./allModules/subModules/GemModule";
+import { WeaponModule } from "./allModules/subModules/WeaponModule";
+
+/**
+ * Maps each generic (no getCategory) view property to its poe.watch `type`
+ * (category) value. accessory/armour/base/gem/weapon have getCategory and
+ * keep their own classes below.
+ */
+const GENERIC_TYPES = {
+  currency: "currency",
+  beast: "beast",
+  deliriumOrb: "deliriumOrb",
+  divs: "card",
+  essence: "essence",
+  fossil: "fossil",
+  fragment: "fragment",
+  map: "map",
+  flask: "flask",
+  jewel: "jewel",
+  invitation: "invitation",
+  oil: "oil",
+  scarab: "scarab",
+  sextant: "sextans",
+  uniqueMaps: "uniqueMap",
+} as const;
 
 /**
  * Represents a module for fetching data related to Watchstones and Watchstone Regions.
  */
 export default class WatchViewModule {
-  /**
-   * Module for fetching data related to Currency.
-   */
-  public currency: Modules.CurrencyModule;
-
-  /**
-   * Module for fetching data related to Accessories.
-   */
-  public accessory: Modules.AccessoryModule;
-
-  /**
-   * Module for fetching data related to Armour.
-   */
-  public armour: Modules.ArmourModule;
-
-  /**
-   * Module for fetching data related to Base.
-   */
-  public base: Modules.BaseModule;
-
-  /**
-   * Module for fetching data related to Beast.
-   */
-  public beast: Modules.BeastModule;
-
-  /**
-   * Module for fetching data related to DeliriumOrb.
-   */
-  public deliriumOrb: Modules.DeliriumOrbModule;
-
-  /**
-   * Module for fetching data related to Divs.
-   */
-  public divs: Modules.DivsModule;
-
-  /**
-   * Module for fetching data related to Essence.
-   */
-  public essence: Modules.EssenceModule;
-
-  /**
-   * Module for fetching data related to Fossil.
-   */
-  public fossil: Modules.FossilModule;
-
-  /**
-   * Module for fetching data related to Fragment.
-   */
-  public fragment: Modules.FragmentModule;
-
-  /**
-   * Module for fetching data related to Map.
-   */
-  public map: Modules.MapModule;
-
-  /**
-   * Module for fetching data related to Flask.
-   */
-  public flask: Modules.FlaskModule;
-
-  /**
-   * Module for fetching data related to Jewel.
-   */
-  public jewel: Modules.JewelModule;
-
-  /**
-   * Module for fetching data related to Gem.
-   */
-  public gem: Modules.GemModule;
-
-  /**
-   * Module for fetching data related to Inscribed.
-   */
-  //public inscribed: Modules.InscribedModule;
-
-  /**
-   * Module for fetching data related to Invitation.
-   */
-  public invitation: Modules.InvitationModule;
-
-  /**
-   * Module for fetching data related to Oil.
-   */
-  public oil: Modules.OilModule;
-
-  /**
-   * Module for fetching data related to Scarab.
-   */
-  public scarab: Modules.ScarabModule;
-
-  /**
-   * Module for fetching data related to Sextant.
-   */
-  public sextant: Modules.SextantModule;
-
-  /**
-   * Module for fetching data related to UniqueMaps.
-   */
-  public uniqueMaps: Modules.UniqueMapsModule;
-
-  /**
-   * Module for fetching data related to Weapon.
-   */
-  public weapon: Modules.WeaponModule;
+  /** Module for fetching data related to Currency. */
+  public currency!: PoeWatch;
+  /** Module for fetching data related to Accessories. */
+  public accessory: AccessoryModule;
+  /** Module for fetching data related to Armour. */
+  public armour: ArmourModule;
+  /** Module for fetching data related to Base. */
+  public base: BaseModule;
+  /** Module for fetching data related to Beast. */
+  public beast!: PoeWatch;
+  /** Module for fetching data related to DeliriumOrb. */
+  public deliriumOrb!: PoeWatch;
+  /** Module for fetching data related to Divs. */
+  public divs!: PoeWatch;
+  /** Module for fetching data related to Essence. */
+  public essence!: PoeWatch;
+  /** Module for fetching data related to Fossil. */
+  public fossil!: PoeWatch;
+  /** Module for fetching data related to Fragment. */
+  public fragment!: PoeWatch;
+  /** Module for fetching data related to Map. */
+  public map!: PoeWatch;
+  /** Module for fetching data related to Flask. */
+  public flask!: PoeWatch;
+  /** Module for fetching data related to Jewel. */
+  public jewel!: PoeWatch;
+  /** Module for fetching data related to Gem. */
+  public gem: GemModule;
+  /** Module for fetching data related to Invitation. */
+  public invitation!: PoeWatch;
+  /** Module for fetching data related to Oil. */
+  public oil!: PoeWatch;
+  /** Module for fetching data related to Scarab. */
+  public scarab!: PoeWatch;
+  /** Module for fetching data related to Sextant. */
+  public sextant!: PoeWatch;
+  /** Module for fetching data related to UniqueMaps. */
+  public uniqueMaps!: PoeWatch;
+  /** Module for fetching data related to Weapon. */
+  public weapon: WeaponModule;
 
   /**
    * Creates an instance of WatchWievModule.
    * @param league - The league name to fetch data from.
    */
   constructor(league: string) {
-    this.currency = new Modules.CurrencyModule(league);
-    this.accessory = new Modules.AccessoryModule(league);
-    this.armour = new Modules.ArmourModule(league);
-    this.base = new Modules.BaseModule(league);
-    this.beast = new Modules.BeastModule(league);
-    this.essence = new Modules.EssenceModule(league);
-    this.fossil = new Modules.FossilModule(league);
-    this.fragment = new Modules.FragmentModule(league);
-    this.map = new Modules.MapModule(league);
-    this.flask = new Modules.FlaskModule(league);
-    this.jewel = new Modules.JewelModule(league);
-    this.gem = new Modules.GemModule(league);
-    this.invitation = new Modules.InvitationModule(league);
-    this.oil = new Modules.OilModule(league);
-    this.scarab = new Modules.ScarabModule(league);
-    this.sextant = new Modules.SextantModule(league);
-    this.weapon = new Modules.WeaponModule(league);
-    this.uniqueMaps = new Modules.UniqueMapsModule(league);
-    this.deliriumOrb = new Modules.DeliriumOrbModule(league);
-    this.divs = new Modules.DivsModule(league);
-    //this.inscribed = new Modules.InscribedModule(league);- not now
+    (Object.keys(GENERIC_TYPES) as (keyof typeof GENERIC_TYPES)[]).forEach(
+      (key) => {
+        (this as any)[key] = new PoeWatchLeaf(league, GENERIC_TYPES[key]);
+      },
+    );
+    this.accessory = new AccessoryModule(league);
+    this.armour = new ArmourModule(league);
+    this.base = new BaseModule(league);
+    this.gem = new GemModule(league);
+    this.weapon = new WeaponModule(league);
   }
 }

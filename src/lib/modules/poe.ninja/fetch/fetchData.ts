@@ -4,8 +4,7 @@ import mergeExchangeData from "./merge/mergeExchangeData";
 import urlGenerator from "../func/urlGenerator";
 import ApiError from "../../../errors/ApiError";
 import CustomError from "../../../errors/CustomError";
-
-const { version: PACKAGE_VERSION } = require("../../../../../package.json");
+import httpGet from "../../utils/httpGet";
 
 /**
  * Fetches data from a specified API endpoint, merges relevant data, and returns the result.
@@ -23,13 +22,7 @@ async function fetchData(
   try {
     // Generate the URL for the specified league, type name, and type
     const url: string = urlGenerator(league, typeName, type);
-    //axios.get(url) is a promise
-    const response = await axios.get(url, {
-      headers: {
-        "Accept-Encoding": "identity",
-        "User-Agent": `poe-api-manager/${PACKAGE_VERSION} (+https://github.com/ayberkgezer/poe-api-manager)`,
-      },
-    });
+    const response = await httpGet(url);
     //typwName is either currencyoverview or itemoverview
     if (typeName == "currencyoverview") {
       //if the response has data and lines and currencyDetails

@@ -1,6 +1,7 @@
 import axios from "axios";
 import ApiError from "../../../errors/ApiError";
 import WatchUrlGenerator from "../func/WatchUrlGenerator";
+import httpGet from "../../utils/httpGet";
 
 /**
  * Fetches data from the POE Watch API based on the provided query URL.
@@ -12,11 +13,7 @@ import WatchUrlGenerator from "../func/WatchUrlGenerator";
 async function fetchData(league: string, type: string): Promise<object[]> {
   try {
     const url: string = WatchUrlGenerator(league, type);
-    const response = await axios.get(url, {
-      headers: {
-        "Accept-Encoding": "identity",
-      },
-    });
+    const response = await httpGet(url);
 
     if (response.data) {
       return response.data;

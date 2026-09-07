@@ -18,7 +18,12 @@
     - [itemView](#itemview)
   - [poe.watch](#watchapi)
     - [view](#view)
+  - [Path of Exile 2](#poe2ninjaapi)
+    - [Poe2NinjaAPI](#poe2ninjaapi)
+    - [Poe2WatchAPI](#poe2watchapi)
   - [utils](#utils)
+- [Error handling](#error-handling)
+- [Releasing](#releasing)
 - [Changelog](https://github.com/ayberkgezer/poe-api-manager/blob/main/Changelog.md)
 - [Examples](#examples)
 
@@ -92,23 +97,23 @@ What we can get here is as follows.
 - Incubators
 - Maps
 - Oils *(exchange)*
-- Resanators *(exchange)*
+- Resonators *(exchange)*
 - Scarabs *(exchange)*
 - Skill Gems
 - Unique Accessories
 - Unique Armours
-- Unique Flask
+- Unique Flasks
 - Unique Jewels
 - Unique Maps
 - Unique Weapons
 - Vials
 - Omens *(exchange)*
+- Memories
+- Invitations
 - Unique Relics
 - Cluster Jewels
 - Blighted Maps
 - Blight Ravaged Maps
-- Invitations
-- Memories
 - Coffins
 - Allflame Embers *(exchange)*
 
@@ -163,7 +168,7 @@ What we can get here is as follows.
 - getData() => function returns data purely.
 ```javascript
 //Example Currency
-watchAPI.view.baseType.getData().then((data) => {
+watchAPI.view.currency.getData().then((data) => {
   console.log(data);
 });
 ```
@@ -186,16 +191,105 @@ watchAPI.view.armour.getCategory("chest").then((data) => {
   console.log(data);
 });
 ```
+
+### Poe2NinjaAPI
+```javascript
+const { Poe2NinjaAPI } = require("poe-api-manager");
+
+const ninja2 = new Poe2NinjaAPI("League-Name");
+```
+> Note: PoE2 economy data is empty on the "Standard" league (HTTP 200, 0 rows).
+> Use an active league - discoverable via [`Utils.getPoe2Leagues()`](#utils).
+
+#### exchange
+poe.ninja PoE2 only has an exchange endpoint - **there is no PoE2 stash
+currency endpoint**, so currency is served from here too.
+- Currency
+- Fragments
+- Abyss
+- UncutGems
+- LineageSupportGems
+- Essences
+- SoulCores
+- Idols
+- Runes
+- Ritual
+- Expedition
+- Delirium
+- Breach
+- Verisium
+
+```javascript
+ninja2.exchange.currency.getData(["id", "name", "icon"]).then((data) => {
+  console.log(data);
+});
+```
+> PoE2 exchange values are denominated in **divine**, not chaos: rows carry a
+> `primaryValue` (`core.primary === "divine"`) and no `chaosValue` field,
+> unlike the PoE1 exchange types above.
+
+#### itemView
+The PoE2 stash item types.
+- UniqueWeapons
+- UniqueArmours
+- UniqueAccessories
+- UniqueFlasks
+- UniqueCharms
+- UniqueJewels
+- UniqueSanctumRelics
+- UniqueTablets
+- PrecursorTablets
+
+```javascript
+ninja2.itemView.uniqueWeapons.getData(["id", "name", "icon"]).then((data) => {
+  console.log(data);
+});
+```
+
+### Poe2WatchAPI
+```javascript
+const { Poe2WatchAPI } = require("poe-api-manager");
+
+const watch2 = new Poe2WatchAPI("League-Name");
+```
+poe.watch exposes exactly one PoE2 endpoint - exchange ratios - so `exchange`
+is the only property here.
+```javascript
+watch2.exchange.getData(["name", "category"]).then((data) => {
+  console.log(data);
+});
+```
+- getCategory("categoryName") => Filters by the `category` field (e.g. "currency").
+> Note: unlike PoE1's `getCategory` (which filters on `group`), the PoE2 ratios
+> response uses a `category` field instead.
+```javascript
+watch2.exchange.getCategory("currency").then((data) => {
+  console.log(data);
+});
+```
+
 ## Utils
 Utils class is a class that contains some auxiliary tools.
 ```javascript
 const { Utils } = require("poe-api-manager");
 const utils = new Utils();
 ```
-- getLeagues() => Returns available league names.
+- getLeagues() => Returns available league names. PoE1-only, sourced from poe.watch.
 
 ```javascript
 utils.getLeagues().then((data) => {
+  console.log(data);
+});
+```
+
+- getPoe1Leagues() / getPoe2Leagues() => Returns available league names, sourced from poe.ninja.
+
+```javascript
+utils.getPoe1Leagues().then((data) => {
+  console.log(data);
+});
+
+utils.getPoe2Leagues().then((data) => {
   console.log(data);
 });
 ```
@@ -224,15 +318,21 @@ try {
 }
 ```
 
+## Releasing
+Releases are automated by [release-please](https://github.com/googleapis/release-please)
+from conventional commits: a `feat:`/`fix:` commit on `main` opens a release
+PR, and merging that PR is what publishes to npm and creates the tag and
+GitHub release. See [CONTRIBUTING.md](CONTRIBUTING.md#releasing) for the full
+detail.
 
 ## Examples
 ```javascript
 const { NinjaAPI , WatchAPI } = require("poe-api-manager");
 
 // Create NinjaAPI
-const ninjaAPI = new NinjaAPI("Affliction");
+const ninjaAPI = new NinjaAPI("Standard");
 //Create WatchAPI
-const watchAPI = new WatchAPI("Affliction")
+const watchAPI = new WatchAPI("Standard")
 
 //We entered the filter data
 const requestedProperties = ["id", "name", "icon"];
@@ -257,9 +357,9 @@ watchAPI.view.scarab.getData(requestedProperties).then((data) => {
 const { NinjaAPI , WatchAPI } = require("poe-api-manager");
 
 // Create NinjaAPI
-const ninjaAPI = new NinjaAPI("Affliction");
+const ninjaAPI = new NinjaAPI("Standard");
 //Create WatchAPI
-const watchAPI = new WatchAPI("Affliction")
+const watchAPI = new WatchAPI("Standard")
 
 const requestedProperties = ["id", "name", "icon"];
 

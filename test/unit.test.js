@@ -8,6 +8,7 @@ const urlGenerator = require("../dist/lib/modules/poe.ninja/func/urlGenerator").
 const watchUrlGenerator = require("../dist/lib/modules/poe.watch/func/WatchUrlGenerator").default;
 const ValidationError = require("../dist/lib/errors/ValidationError").default;
 const fetchData = require("../dist/lib/modules/poe.ninja/fetch/fetchData").default;
+const httpGet = require("../dist/lib/modules/utils/httpGet").default;
 
 test("filterProperties picks only requested props and omits missing ones", () => {
   const result = filterProperties([{ a: 1, b: 2 }], ["a", "missing"]);
@@ -94,4 +95,23 @@ test("fetchData rethrows ValidationError for an unknown typeName without hitting
     () => fetchData("Standard", "bogus", "Oil"),
     ValidationError,
   );
+});
+
+test("httpGet sends Accept-Encoding: identity", async () => {
+  // poe.ninja serves broken gzip; this header is the workaround. Nothing else
+  // fails if it is dropped, so assert it here.
+  const axios = require("axios");
+  const original = axios.get;
+  let sent;
+  axios.get = async (_url, config) => {
+    sent = config.headers;
+    return { data: {} };
+  };
+  try {
+    await httpGet("https://example.invalid/x");
+  } finally {
+    axios.get = original;
+  }
+  assert.strictEqual(sent["Accept-Encoding"], "identity");
+  assert.match(sent["User-Agent"], /^poe-api-manager\//);
 });
