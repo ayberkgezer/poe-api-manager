@@ -5,12 +5,13 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc && terser dist/index.js -o dist/index.min.js",
+    "build": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && tsc && terser dist/index.js -o dist/index.min.js",
     "dev": "tsc --watch --project ./tsconfig.json",
-    "test": "npm run build && node --test test/**/*.test.js"
+    "test": "npm run build && node --test test/*.test.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "Changelog.md"
   ],
   "engines": {
     "node": ">=18"

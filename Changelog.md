@@ -9,6 +9,9 @@
 - 💥[Breaking] `itemView.helmetEnchant` removed; poe.ninja removed it upstream.
 - 💥[Breaking] Errors thrown by the library are now typed `ApiError` /
   `ValidationError` (with `statusCode` and `details`) instead of plain `Error`.
+- 💥[Breaking] An invalid/nonexistent league name, and an unknown `type` on the
+  exchange endpoint, now resolve to an empty array instead of throwing —
+  poe.ninja answers HTTP 200 with empty `lines` for both cases.
 - 💥[Breaking] Releases are now cut by pushing a `v*` git tag instead of
   automatically on every push to `main`.
 - 🛠️[Fix] `mergeData` no longer silently drops currency lines it can't join.

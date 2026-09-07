@@ -6,7 +6,7 @@
 [![ISSUES](https://img.shields.io/github/issues/ayberkgezer/poe-api-manager)](https://github.com/ayberkgezer/poe-api-manager/issues)
 [![npm](https://img.shields.io/npm/v/poe-api-manager?logo=npm)](https://www.npmjs.com/package/poe-api-manager)
 ![NPM Downloads](https://img.shields.io/npm/dt/poe-api-manager?logo=npm)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/ayberkgezer/poe-api-manager/build.yml)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/ayberkgezer/poe-api-manager/ci.yml)
 
 
 - [Introduction](#introduction)

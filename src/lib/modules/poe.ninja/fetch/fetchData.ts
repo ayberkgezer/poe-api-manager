@@ -3,6 +3,9 @@ import mergeData from "./merge/mergeData";
 import mergeExchangeData from "./merge/mergeExchangeData";
 import urlGenerator from "../func/urlGenerator";
 import ApiError from "../../../errors/ApiError";
+import CustomError from "../../../errors/CustomError";
+
+const { version: PACKAGE_VERSION } = require("../../../../../package.json");
 
 /**
  * Fetches data from a specified API endpoint, merges relevant data, and returns the result.
@@ -24,7 +27,7 @@ async function fetchData(
     const response = await axios.get(url, {
       headers: {
         "Accept-Encoding": "identity",
-        "User-Agent": "poe-api-manager/2.0.0 (+https://github.com/ayberkgezer/poe-api-manager)",
+        "User-Agent": `poe-api-manager/${PACKAGE_VERSION} (+https://github.com/ayberkgezer/poe-api-manager)`,
       },
     });
     //typwName is either currencyoverview or itemoverview
@@ -82,8 +85,8 @@ async function fetchData(
       });
     }
   } catch (error: any) {
-    // If it's already an ApiError, pass it through
-    if (error instanceof ApiError) {
+    // If it's already a typed error (ApiError/ValidationError), pass it through
+    if (error instanceof CustomError) {
       throw error;
     }
     // Handle axios errors with more context

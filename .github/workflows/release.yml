@@ -33,6 +33,15 @@ jobs:
       - name: 🧪 Test
         run: npm test
 
+      - name: 🔎 Verify tag matches package.json version
+        run: |
+          PKG=$(node -p "require('./package.json').version")
+          TAG=${GITHUB_REF_NAME#v}
+          if [ "$PKG" != "$TAG" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match package.json version $PKG"
+            exit 1
+          fi
+
       - name: 🚀 Create GitHub release
         run: gh release create ${{ github.ref_name }} --title "poe-api-manager ${{ github.ref_name }}" --notes "[CHANGELOG](https://github.com/ayberkgezer/poe-api-manager/blob/main/Changelog.md)"
         env:
