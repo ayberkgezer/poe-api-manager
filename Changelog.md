@@ -1,4 +1,12 @@
 # CHANGELOG
+## [2.1.0](https://github.com/ayberkgezer/poe-api-manager/compare/v2.0.0...v2.1.0) (2026-09-07)
+
+
+### Features
+
+* add Path of Exile 2 support for poe.ninja and poe.watch ([910b5ae](https://github.com/ayberkgezer/poe-api-manager/commit/910b5aed45392f011dd700e1467d6cb5c5b46247))
+* Path of Exile 2 support and structural cleanup ([844fd06](https://github.com/ayberkgezer/poe-api-manager/commit/844fd06f240a68260b5ba56977491e701a97dccc))
+
 ## 2.0.0
 - 💥[Breaking] poe.ninja removed its old `/api/data/*` endpoints; the library now
   targets the new `poe.ninja/poe1/api/economy/*` endpoints.
