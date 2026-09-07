@@ -45,7 +45,7 @@
   "author": "Ayberk Gezer",
   "license": "MIT",
   "devDependencies": {
-    "ts-node": "^10.9.2",
+    "@types/node": "^20.19.43",
     "typescript": "^5.9.3"
   },
   "dependencies": {
