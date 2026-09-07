@@ -1,4 +1,4 @@
-import fetchData from "./fetchData/fetchData";
+import fetchData from "./httpGet";
 import ApiError from "../../errors/ApiError";
 
 /**

@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && tsc && terser dist/index.js -o dist/index.min.js",
+    "build": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && tsc",
     "dev": "tsc --watch --project ./tsconfig.json",
     "test": "npm run build && node --test test/*.test.js"
   },
@@ -45,7 +45,6 @@
   "author": "Ayberk Gezer",
   "license": "MIT",
   "devDependencies": {
-    "terser": "^5.51.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },

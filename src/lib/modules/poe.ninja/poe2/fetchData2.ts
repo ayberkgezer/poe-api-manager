@@ -3,8 +3,7 @@ import mergeExchangeData from "../fetch/merge/mergeExchangeData";
 import urlGenerator2 from "./urlGenerator2";
 import ApiError from "../../../errors/ApiError";
 import CustomError from "../../../errors/CustomError";
-
-const { version: PACKAGE_VERSION } = require("../../../../../package.json");
+import httpGet from "../../utils/httpGet";
 
 /**
  * Fetches data from poe.ninja's PoE2 economy API.
@@ -23,12 +22,7 @@ async function fetchData2(
 ): Promise<object[]> {
   try {
     const url: string = urlGenerator2(league, type, endpoint);
-    const response = await axios.get(url, {
-      headers: {
-        "Accept-Encoding": "identity",
-        "User-Agent": `poe-api-manager/${PACKAGE_VERSION} (+https://github.com/ayberkgezer/poe-api-manager)`,
-      },
-    });
+    const response = await httpGet(url);
 
     if (endpoint === "exchange") {
       if (response.data && response.data.lines && response.data.items) {
