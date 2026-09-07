@@ -7,3 +7,6 @@
 export * from "./lib/NinjaAPI";
 export * from "./lib/WatchAPI";
 export * from "./lib/Utils";
+export { default as ApiError } from "./lib/errors/ApiError";
+export { default as ValidationError } from "./lib/errors/ValidationError";
+export { default as CustomError } from "./lib/errors/CustomError";

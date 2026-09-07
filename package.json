@@ -1,13 +1,13 @@
 {
   "name": "poe-api-manager",
-  "version": "1.2.23",
+  "version": "2.0.0",
   "description": "poe.ninja and poe.watch API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc && terser dist/index.js -o dist/index.min.js",
     "dev": "tsc --watch --project ./tsconfig.json",
-    "test": "node --test test/"
+    "test": "npm run build && node --test test/**/*.test.js"
   },
   "files": [
     "dist"
