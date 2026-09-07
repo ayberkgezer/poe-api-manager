@@ -4,7 +4,8 @@
   "packages": {
     ".": {
       "release-type": "node",
-      "changelog-path": "Changelog.md"
+      "changelog-path": "Changelog.md",
+      "component": "poe-api-manager"
     }
   },
   "include-component-in-tag": false,
