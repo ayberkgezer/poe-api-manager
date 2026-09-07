@@ -1,21 +1,42 @@
 name: Release
 
+# release-please derives the next version from conventional commits, opens a
+# release PR, and creates the tag and GitHub release when that PR is merged.
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - main
 
 permissions:
   contents: write
-  id-token: write
+  pull-requests: write
 
 jobs:
-  release:
+  release-please:
     runs-on: ubuntu-latest
+    outputs:
+      released: ${{ steps.release.outputs.release_created }}
+      tag: ${{ steps.release.outputs.tag_name }}
+    steps:
+      - name: 🔖 Release please
+        id: release
+        uses: googleapis/release-please-action@v5
+
+  # Publishing lives in this workflow rather than a tag-triggered one because a
+  # tag pushed by GITHUB_TOKEN does not trigger other workflows, so a separate
+  # publish workflow would never fire. The filename must stay `release.yml` —
+  # npm's trusted publisher config pins it.
+  publish:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.released == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
 
     steps:
       - name: 📚 Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Trusted publishing (OIDC) needs npm >= 11.5.1, which ships with Node 24.
       # setup-node must be v7+: earlier versions exported a dummy NODE_AUTH_TOKEN
@@ -27,8 +48,8 @@ jobs:
           cache: npm
           registry-url: https://registry.npmjs.org
 
-      # npm >= 11.5.1 is required for OIDC publishing. A 404 on publish is npm
-      # masking an auth failure, so knowing this version up front saves a cycle.
+      # npm masks publish auth failures as 404, and the npm version is the first
+      # thing to rule out, so print it instead of guessing after the fact.
       - name: 🔎 Show npm version
         run: npm -v
 
@@ -41,29 +62,19 @@ jobs:
       - name: 🧪 Test
         run: npm test
 
-      - name: 🔎 Verify tag matches package.json version
-        run: |
-          PKG=$(node -p "require('./package.json').version")
-          TAG=${GITHUB_REF_NAME#v}
-          if [ "$PKG" != "$TAG" ]; then
-            echo "Tag $GITHUB_REF_NAME does not match package.json version $PKG"
-            exit 1
-          fi
-
-      # Idempotent so the job can be re-run after a failed publish without
-      # tripping over an already-created release.
-      - name: 🚀 Create GitHub release
-        run: |
-          gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 && exit 0
-          gh release create "$GITHUB_REF_NAME" \
-            --title "poe-api-manager $GITHUB_REF_NAME" \
-            --notes "[CHANGELOG](https://github.com/ayberkgezer/poe-api-manager/blob/main/Changelog.md)"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       # No NPM_TOKEN: authentication comes from the OIDC token minted by the
       # `id-token: write` permission above. Requires a trusted publisher
       # configured at npmjs.com/package/poe-api-manager/access pointing at this
       # repository and the workflow filename `release.yml`.
       - name: 📦 Publish to NPM
         run: npm publish --provenance --access public
+
+      # release-please creates the GitHub release as a draft, and GitHub does
+      # not create the git tag for a draft. Undrafting here is what publishes
+      # the release and creates the tag, so neither exists unless npm accepted
+      # the package first.
+      - name: 🚀 Publish the GitHub release
+        run: gh release edit "$TAG" --draft=false --latest
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ needs.release-please.outputs.tag }}
