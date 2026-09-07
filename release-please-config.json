@@ -8,6 +8,5 @@
       "component": "poe-api-manager"
     }
   },
-  "include-component-in-tag": false,
-  "separate-pull-requests": false
+  "include-component-in-tag": false
 }
