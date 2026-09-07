@@ -13,13 +13,7 @@ export class Utils {
    * @throws {Error} If there's an error fetching the leagues.
    */
   async getLeagues(): Promise<string[]> {
-    try {
-      return await getLeagues();
-    } catch (error) {
-      throw new Error(
-        `Error fetching data Leagues: ${(error as Error).message}`,
-      );
-    }
+    return await getLeagues();
   }
 
   /**
@@ -34,12 +28,6 @@ export class Utils {
     data: object[],
     properties: string[],
   ): Promise<object[]> {
-    try {
-      return filterProperties(data, properties);
-    } catch (error) {
-      throw new Error(
-        `Error fetching data Leagues: ${(error as Error).message}`,
-      );
-    }
+    return filterProperties(data, properties);
   }
 }

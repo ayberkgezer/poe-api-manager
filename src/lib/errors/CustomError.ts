@@ -15,6 +15,9 @@ export default class CustomError extends Error {
     super(message);
     this.statusCode = statusCode;
     this.name = this.constructor.name;
-    Error.captureStackTrace(this, this.constructor);
+    // Error.captureStackTrace is V8-only (missing on e.g. bun/JavaScriptCore)
+    if (typeof Error.captureStackTrace === "function") {
+      Error.captureStackTrace(this, this.constructor);
+    }
   }
 }

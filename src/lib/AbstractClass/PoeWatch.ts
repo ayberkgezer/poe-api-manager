@@ -27,7 +27,7 @@ export default abstract class PoeWatch implements IPoeWatch {
    */
   public async getData(requestedProperties?: string[]): Promise<object[]> {
     try {
-      return getData(this.league, this.type, requestedProperties);
+      return await getData(this.league, this.type, requestedProperties);
     } catch (error: any) {
       // Pass through custom errors
       if (error instanceof CustomError) {
