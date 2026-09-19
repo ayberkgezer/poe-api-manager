@@ -1,4 +1,11 @@
 # CHANGELOG
+## [2.1.1](https://github.com/ayberkgezer/poe-api-manager/compare/v2.1.0...v2.1.1) (2026-09-07)
+
+
+### Bug Fixes
+
+* stop each release from spawning a bogus next-version PR ([#37](https://github.com/ayberkgezer/poe-api-manager/issues/37)) ([4187a0e](https://github.com/ayberkgezer/poe-api-manager/commit/4187a0e6b11e96a927297608951a1c25c97dcbb0))
+
 ## [2.1.0](https://github.com/ayberkgezer/poe-api-manager/compare/v2.0.0...v2.1.0) (2026-09-07)
 
 ### Features
